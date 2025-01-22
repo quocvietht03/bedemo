@@ -1,0 +1,51 @@
+.bt-block-recent-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .bt-post {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: inherit;
+    }
+    .bt-cover-image {
+      padding-bottom: 100%;
+      border-radius: 15px;
+    }
+    &--thumbnail {
+      width: 100px;
+    }
+    &--infor {
+      width: calc(100% - 115px);
+    }
+    &--date {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 150%;
+      color: $color-accent;
+      margin-bottom: 8px;
+    }
+    &--title {
+      @extend .__bt-max-line-ellipsis;
+      font-size: 18px;
+      word-break: break-word;
+      margin: 0 0 12px;
+    }
+    &--author {
+      font-size: 14px;
+      line-height: 150%;
+    }
+  }
+}
+
+.bt-block-contact-information {
+  @extend .__bt-contact-information-style;
+}
+
+.bt-block-instagram-posts {
+  @extend .__instagram-posts-style;
+}

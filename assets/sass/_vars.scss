@@ -1,0 +1,28 @@
+/*
+ * Fonts
+ */
+$text-font: var(--e-global-typography-text-font-family, 'Lato');
+$primary-font: var(--e-global-typography-primary-font-family, 'DM Sans');
+$secondary-font: var(--e-global-typography-secondary-font-family, 'Bricolage Grotesque');
+
+/*
+ * colors
+ */
+$color-text: var(--e-global-color-text, #555);
+$color-primary: var(--e-global-color-primary, #222);
+$color-accent: var(--e-global-color-accent, #FB0F5A);
+$color-secondary: var(--e-global-color-secondary, #1B1A27);
+
+/* Layout */
+$container: var(--container-max-width,1140px);
+$padding-start: var(--container-default-padding-block-start, 15px);
+$padding-end: var(--container-default-padding-block-end, 15px);
+$grid-column-gap: var(--grid-column-gap,30px);
+$grid-row-gap: var(--grid-row-gap,30px);
+
+/* Breakpoints */
+$break-lg: 1200px - 0.02;
+$break-tl: 1024px - 0.02;
+$break-md: 992px - 0.02;
+$break-sm: 768px - 0.02;
+$break-xs: 520px - 0.02;

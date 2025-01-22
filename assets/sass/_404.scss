@@ -1,0 +1,58 @@
+.error404 {
+  .bt-main-content-ss {
+    text-align: center;
+    padding: 240px 0 160px;
+    h2 {
+      font-family: $secondary-font;
+      font-size: 140px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 40px;
+    }
+    h3 {
+      font-size: 40px;
+      margin: 0 0 20px;
+    }
+    p {
+      font-size: 18px;
+      margin: 0;
+    }
+    .search-form {
+      position: relative;
+      max-width: 500px;
+      margin: 40px auto 0;
+      label {
+        margin: 0;
+      }
+      input[type="search"] {
+        width: 100%;
+        padding: 20px 120px 20px 20px;
+      }
+      input[type="submit"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 15px 20px;
+        border-radius: 0 15px 15px 0;
+      }
+    }
+    @media(max-width: $break-sm) {
+      padding: 200px 0 140px;
+      h2 {
+        font-size: 100px;
+      }
+      h3 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 16px;
+        margin: 0;
+      }
+    }
+  }
+
+}
