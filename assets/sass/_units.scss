@@ -90,7 +90,6 @@ select {
 }
 button, input[type="submit"] {
   @extend .__bt-button-style;
-  min-height: 58px;
   cursor: pointer;
 }
 label {

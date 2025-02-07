@@ -1,6 +1,6 @@
 <?php
 
-namespace BeDemoElementorWidgets\Widgets\ImageSlider;
+namespace BeDemoElementorWidgets\Widgets\ImageSliderVertical;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -12,17 +12,17 @@ use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 
-class Widget_ImageSlider extends Widget_Base
+class Widget_ImageSliderVertical extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'bt-image-slider';
+        return 'bt-image-slider-vertical'; 
     }
 
     public function get_title()
     {
-        return __('Image Slider', 'bedemo');
+        return __('Image Slider Vertical', 'bedemo');
     }
 
     public function get_icon()
@@ -126,17 +126,7 @@ class Widget_ImageSlider extends Widget_Base
 				],
 			]
 		);
-        $this->add_control(
-			'img_border_radius',
-			[
-				'label' => __( 'Border Radius', 'bedemo' ),
-				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%' ],
-				'selectors' => [
-					'{{WRAPPER}} .bt-image--item .bt-cover-image' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				],
-			]
-		);
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -207,7 +197,7 @@ class Widget_ImageSlider extends Widget_Base
         $slider_speed = $settings['slider_speed'];
         $slider_space_between = $settings['slider_spacebetween'];
         ?>
-        <div class="bt-elwg-image-slider--default swiper" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
+        <div class="bt-elwg-image-slider-vertical--default swiper" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-image-slider swiper-wrapper">
                 <?php foreach ($settings['list'] as $index => $item) {
                     $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);
@@ -220,7 +210,7 @@ class Widget_ImageSlider extends Widget_Base
                     <li class="bt-image--item swiper-slide">
                         <?php if (!empty($item['image_url'])) { ?>
                             <a class="bt-image--link" href="<?php echo esc_url($item['image_url']); ?>" target="_blank">
-                                <?php echo '<div class="bt-cover-image">' . $image . '</div>'; ?>
+                                <?php echo '<div class="bt-cover-image-wrap">' . $image . '</div>'; ?>
                             </a>
                         <?php } else { ?>
                             <?php echo '<div class="bt-cover-image">' . $image . '</div>'; ?>

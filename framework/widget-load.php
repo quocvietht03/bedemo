@@ -70,13 +70,16 @@ class ElementorWidgets {
 			'orbit-circle',
 			'pattern-background',
 			'buble-background',
-
+			'highlighted-heading',
 			'image-slider',
 			'review-slider',
 			'text-slider',
 			'demo-item',
 			'feature-item',
-
+			'image-slider-vertical',
+			'heading-animation',
+			'image-feature',
+			'image-feature-slider'
 		);
 
 		return $this->widgets;
@@ -193,12 +196,15 @@ class ElementorWidgets {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\BubleBackground\Widget_BubleBackground());
 
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ImageSlider\Widget_ImageSlider());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ImageSliderVertical\Widget_ImageSliderVertical());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ReviewSlider\Widget_ReviewSlider());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\TextSlider\Widget_TextSlider());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\DemoItem\Widget_DemoItem());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FeatureItem\Widget_FeatureItem());
-
-
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\HeadingAnimation\Widget_HeadingAnimation());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ImageFeature\Widget_ImageFeature());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\HighlightedHeading\Widget_HighlightedHeading());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ImageFeatureSlider\Widget_ImageFeatureSlider());
 	}
 
 	/**
