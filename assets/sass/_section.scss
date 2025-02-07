@@ -4,6 +4,9 @@ body {
 }
 .elementor-element {
   &.bt-section-hero-cleanira {
+    .e-grid {
+      pointer-events: none;
+    }
     @media (min-width: 1790px) {
       .bt-col-container-left {
         padding-left: calc((var(--width-body) + 5px - 1760px) / 2);
