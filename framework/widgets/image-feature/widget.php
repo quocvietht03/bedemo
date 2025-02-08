@@ -42,7 +42,18 @@ class Widget_ImageFeature extends Widget_Base
 				'label' => __('Content', 'bedemo'),
 			]
 		);
-
+		$this->add_control(
+            'select_theme',
+            [
+                'label' => esc_html__('Select Themes', 'bedemo'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'bt-cleanira', 
+                'options' => [
+                    'bt-cleanira' => esc_html__('Cleanira', 'bedemo'),
+                    'bt-awakenur' => esc_html__('Awakenur', 'bedemo'),
+                ],
+            ]
+        );
 		$this->add_control(
 			'image',
 			[
@@ -239,9 +250,15 @@ class Widget_ImageFeature extends Widget_Base
 		} else {
 			$image = '<img src="' . esc_url($settings['image']['url']) . '" alt="">';
 		}
-
+		$select_theme = $settings['select_theme'] ?? 'bt-cleanira';
+		$theme_class = '';
+		if ($select_theme === 'bt-cleanira') {
+			$theme_class = 'bt-cleanira';
+		} elseif ($select_theme === 'bt-awakenur') {
+			$theme_class = 'bt-awakenur';
+		} 
 ?>
-		<div class="bt-elwg-image-feature--default">
+		<div class="bt-elwg-image-feature--default <?php echo esc_attr($theme_class) ?>">
 			<div class="bt-image-feature-item">
 				<?php echo '<div class="bt-cover-image">' . $image . '</div>'; ?>
 				<?php

@@ -280,7 +280,7 @@
 			const $dots = $imageslider.data('dots');
 			const $swiper = new Swiper($imageslider[0], {
 				slidesPerView: $itemMobile,
-				loop: true,
+				loop: false,
 				spaceBetween: $spaceBetween,
 				speed: $speed,
 				freeMode: true,
