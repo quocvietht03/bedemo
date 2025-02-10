@@ -575,3 +575,129 @@ body {
 		animation: ZoomIn 0.5s ease forwards;
 	}
 }
+@keyframes effectBubbleRiseButton {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	70% {
+		opacity: 0.8;
+	}
+	100% {
+		transform: translateY(-100px);
+		opacity: 0;
+	}
+}
+
+@keyframes effectBubbleSideWaysButton {
+	0% {
+		margin-left: 0px;
+	}
+	100% {
+		margin-left: 30px;
+	}
+}
+@keyframes effectcCleaningSwipe {
+	0% {
+		left: -50px;
+		opacity: 1;
+		transform: rotate(-30deg);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		left: 130%;
+		opacity: 0;
+		transform: rotate(30deg);
+	}
+}
+.bt-button-hover-cleanira {
+	.elementor-button,
+	.bt-button {
+		position: relative;
+		overflow: hidden;
+		display: inline-flex;
+		color: #212121;
+		&::before {
+			position: absolute;
+			bottom: -30px;
+			width: 30px;
+			content: "";
+			height: 30px;
+			background-image: url("../images/img-bubble-blue.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			left: 10%;
+		}
+		&::after {
+			position: absolute;
+			bottom: -30px;
+			width: 15px;
+			content: "";
+			height: 15px;
+			background-image: url("../images/img-bubble-blue.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+
+			left: 40%;
+		}
+		.elementor-button-content-wrapper,
+		.bt-heading {
+			&::before {
+				position: absolute;
+				bottom: -30px;
+				width: 30px;
+				content: "";
+				height: 30px;
+				background-image: url("../images/img-bubble-blue.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+				left: 50%;
+			}
+			&::after {
+				@media (min-width: $break-sm) {
+					content: "";
+					position: absolute;
+					width: 55px;
+					height: 55px;
+					background: url("../images/icon-clean.png") no-repeat center / contain;
+					bottom: -10px;
+					left: -50px;
+					transform: translateY(0) rotate(-30deg);
+					z-index: 1;
+					opacity: 0;
+				}
+			}
+		}
+		&:hover {
+			box-shadow: 0px 4px 50px 0 rgba(0, 0, 0, 0.1);
+			&::before,
+			&::after {
+				animation:
+					effectBubbleRiseButton 5s linear infinite,
+					effectBubbleSideWaysButton 2s ease-in-out infinite alternate;
+			}
+			&::before {
+				animation-duration: 6s;
+			}
+			&::after {
+				animation-duration: 3s;
+			}
+			.elementor-button-content-wrapper,
+			.bt-heading {
+				&::before {
+					animation:
+						effectBubbleRiseButton 5s linear infinite,
+						effectBubbleSideWaysButton 2s ease-in-out infinite alternate;
+				}
+				&::before {
+					animation-duration: 4s;
+				}
+				&::after {
+					animation: effectcCleaningSwipe 2.7s cubic-bezier(0.11, 0.52, 0.53, 0.79) forwards;
+				}
+			}
+		}
+	}
+}
