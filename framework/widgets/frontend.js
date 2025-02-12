@@ -268,7 +268,7 @@
 		});
 	}
 	var ImageFeatureSliderHandler = function ($scope, $) {
-		const $imageslider = $scope.find('.bt-elwg-image-feature-slider--default');
+		const $imageslider = $scope.find('.bt-feature-slider-js');
 		if ($imageslider.length > 0) {
 			const $direction = $imageslider.data('direction');
 			const $item = $imageslider.data('item');

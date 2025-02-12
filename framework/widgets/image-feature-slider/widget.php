@@ -48,7 +48,18 @@ class Widget_ImageFeatureSlider extends Widget_Base
                 'label' => __('Content', 'bedemo'),
             ]
         );
-
+        $this->add_control(
+            'style_theme',
+            [
+                'label' => __('Style Theme', 'bedemo'),
+                'type' => Controls_Manager::SELECT, 
+                'default' => 'default',
+                'options' => [
+                    'default' => __('Cleanira', 'bedemo'),
+                    'awakenur' => __('Awakenur', 'bedemo'),
+                ],
+            ]
+        );
         $repeater = new Repeater();
 
         $repeater->add_control(
@@ -84,7 +95,7 @@ class Widget_ImageFeatureSlider extends Widget_Base
         $this->add_control(
             'list',
             [
-                'label' => __('List Brands', 'bedemo'),
+                'label' => __('List Feature', 'bedemo'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
@@ -288,8 +299,9 @@ class Widget_ImageFeatureSlider extends Widget_Base
         $slider_item_mobile = $settings['slider_item_mobile'] ?? 1;
         $slider_speed = $settings['slider_speed'];
         $slider_space_between = $settings['slider_spacebetween'];
+        $theme_style = $settings['style_theme'];
 ?>
-        <div class="bt-elwg-image-feature-slider--default swiper" data-dots="<?php echo esc_attr($slider_dots) ?>" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
+        <div class="bt-feature-slider-js bt-elwg-image-feature-slider--<?php echo esc_attr($theme_style); ?> swiper" data-dots="<?php echo esc_attr($slider_dots) ?>" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-image-feature-slider swiper-wrapper">
                 <?php foreach ($settings['list'] as $index => $item) {
                     $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);

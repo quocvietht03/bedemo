@@ -431,7 +431,7 @@
       }
     }
   }
-  &.header-cleanira {
+  &.bt-header-cleanira {
     .elementor-widget-nav-menu {
       .elementor-nav-menu {
         .elementor-item {
@@ -444,7 +444,14 @@
   }
 }
 
+body.admin-bar .dialog-type-lightbox {
+  &.bt-menu-mobile-popup {
+    position: fixed;
+    top: 45px;
+  }
+}
 .bt-menu-mobile-popup {
+  position: fixed !important;
   .elementor-nav-menu {
     a.has-submenu {
       display: flex;
@@ -467,8 +474,10 @@
       a.elementor-sub-item {
         position: relative;
         padding-left: 50px;
-        font-size: 17px !important;
-        color: $color-text;
+        font-family: $text-font !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        color: $color-primary;
         border: none;
         &:before {
           content: "";
@@ -477,7 +486,7 @@
           left: 20px;
           width: 18px;
           height: 1px;
-          background: #707070;
+          background: $color-primary;
         }
       }
     }
