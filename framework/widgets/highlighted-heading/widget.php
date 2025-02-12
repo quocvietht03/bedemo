@@ -232,7 +232,7 @@ class Widget_HighlightedHeading extends Widget_Base
 			<?php echo "<$html_tag>"; ?>
 
 			<?php if (!empty($link)) : ?>
-				<a href="<?php echo esc_url($link); ?>">
+				<a href="<?php echo esc_url($link); ?>" target="_blank">
 					<?php echo !empty($before_text) ? esc_html($before_text) : ''; ?>
 
 					<?php if (!empty($hl_text)) : ?>
