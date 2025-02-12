@@ -315,7 +315,7 @@ class Widget_ImageFeatureSlider extends Widget_Base
                         <div class="bt-image-feature-item">
                             <?php echo '<div class="bt-cover-image">' . $image . '</div>'; 
                             if (!empty($item['image_url'])) {
-                                echo '<div class="bt-button-image"><a href="' . esc_url($item['image_url']) . '" class="button">' . esc_html__('View Page', 'bedemo') . '</a></div>';
+                                echo '<div class="bt-button-image"><a href="' . esc_url($item['image_url']) . '" class="button" target="_blank">' . esc_html__('View Page', 'bedemo') . '</a></div>';
                             }
                             ?>
                         </div>

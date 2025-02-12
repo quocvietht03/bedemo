@@ -438,6 +438,23 @@
           @media (max-width: 1150px) and (min-width: $break-tl) {
             --e-nav-menu-horizontal-menu-item-margin: calc(28px / 2);
           }
+          &.elementor-item-active{
+            color: #212121;
+            fill: #212121;
+            &::after{
+              opacity: 0;
+            }
+          }
+        }
+        .bt-buy-theme{
+          .elementor-item {
+            color: #2D77DC;
+            fill: #2D77DC;
+            &::after{
+              background-color: #2D77DC;
+              opacity: 1;
+            }
+          }
         }
       }
     }

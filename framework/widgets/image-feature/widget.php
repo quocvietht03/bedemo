@@ -264,7 +264,7 @@ class Widget_ImageFeature extends Widget_Base
 				<?php
 				if (!empty($settings['title'])) {
 					if (!empty($settings['link'])) {
-						echo '<div class="bt-button-image"><a href="' . esc_url($settings['link']) . '" class="button">' . $settings['title'] . '</a></div>';
+						echo '<div class="bt-button-image"><a href="' . esc_url($settings['link']) . '" class="button" target="_blank">' . $settings['title'] . '</a></div>';
 					}
 				}
 				?>
