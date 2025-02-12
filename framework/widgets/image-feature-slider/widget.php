@@ -323,7 +323,7 @@ class Widget_ImageFeatureSlider extends Widget_Base
 						if(!empty($item['title'])) {
 							if(!empty($item['image_url'])) {
 								echo '<h3 class="bt-image-feature-title">
-										<a href="' . esc_url($item['image_url']) . '">' . $item['title'] . '</a>
+										<a href="' . esc_url($item['image_url']) . '" target="_blank">' . $item['title'] . '</a>
 									</h3>';
 							} else {
 								echo '<h3 class="bt-image-feature-title">' . $item['title'] . '</h3>';
