@@ -106,26 +106,26 @@ class Widget_ImageSliderVertical extends Widget_Base
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'image_border',
+                'label' => __('Border', 'bedemo'),
+                'selector' => '{{WRAPPER}} .bt-image--item',
+            ]
+        );
+
         $this->add_responsive_control(
-			'image_ratio',
-			[
-				'label' => __( 'Image Ratio', 'bedemo' ),
-				'type' => Controls_Manager::SLIDER,
-				'default' => [
-					'size' => 0.66,
-				],
-				'range' => [
-					'px' => [
-						'min' => 0.3,
-						'max' => 2,
-						'step' => 0.01,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .bt-image--item .bt-cover-image' => 'padding-bottom: calc( {{SIZE}} * 100% );',
-				],
-			]
-		);
+            'image_border_radius',
+            [
+                'label' => __('Border Radius', 'bedemo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .bt-image--item img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
 
         $this->end_controls_section();
 

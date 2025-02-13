@@ -438,23 +438,64 @@
           @media (max-width: 1150px) and (min-width: $break-tl) {
             --e-nav-menu-horizontal-menu-item-margin: calc(28px / 2);
           }
-          &.elementor-item-active{
+          &.elementor-item-active {
             color: #212121;
             fill: #212121;
-            &::after{
+            &::after {
               opacity: 0;
             }
           }
         }
-        .bt-buy-theme{
+        .bt-buy-theme {
           .elementor-item {
-            color: #2D77DC;
-            fill: #2D77DC;
-            &::after{
-              background-color: #2D77DC;
+            color: #2d77dc;
+            fill: #2d77dc;
+            &::after {
+              background-color: #2d77dc;
               opacity: 1;
             }
           }
+        }
+      }
+    }
+  }
+  &.bt-header-awakenur {
+    .elementor-widget-nav-menu {
+      .elementor-nav-menu {
+        .elementor-item {
+          @media (max-width: 1230px) and (min-width: $break-tl) {
+            --e-nav-menu-horizontal-menu-item-margin: calc(20px / 2);
+            font-size: 16px;
+          }
+          &.elementor-item-active {
+            color: #4f320e;
+            fill: #4f320e;
+            &::after {
+              opacity: 0;
+            }
+          }
+        }
+        .bt-buy-theme {
+          .elementor-item {
+            padding: 6px 20px;
+            width: fit-content;
+            font-size: 18px;
+            background-color: #ebd5b8;
+          }
+        }
+      }
+    }
+    @media (max-width: 1230px) and (min-width: $break-tl) {
+      padding-left: 15px;
+      padding-right: 15px;
+      .elementor-widget-image {
+        img {
+          max-width: 230px;
+        }
+      }
+      .elementor-widget-button {
+        .elementor-button {
+          padding: 12px 25px 12px 25px;
         }
       }
     }

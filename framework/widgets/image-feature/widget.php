@@ -43,17 +43,17 @@ class Widget_ImageFeature extends Widget_Base
 			]
 		);
 		$this->add_control(
-            'select_theme',
-            [
-                'label' => esc_html__('Select Themes', 'bedemo'),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'bt-cleanira', 
-                'options' => [
-                    'bt-cleanira' => esc_html__('Cleanira', 'bedemo'),
-                    'bt-awakenur' => esc_html__('Awakenur', 'bedemo'),
-                ],
-            ]
-        );
+			'select_theme',
+			[
+				'label' => esc_html__('Select Themes', 'bedemo'),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'default',
+				'options' => [
+					'default' => esc_html__('Cleanira', 'bedemo'),
+					'awakenur' => esc_html__('Awakenur', 'bedemo'),
+				],
+			]
+		);
 		$this->add_control(
 			'image',
 			[
@@ -68,10 +68,10 @@ class Widget_ImageFeature extends Widget_Base
 		$this->add_control(
 			'title',
 			[
-				'label' => esc_html__('Title Button', 'bedemo'),
+				'label' => esc_html__('Title', 'bedemo'),
 				'type' => Controls_Manager::TEXT,
 				'label_block' => true,
-				'default' => __('View Page', 'bedemo'),
+				'default' => __('Title', 'bedemo'),
 			]
 		);
 
@@ -84,37 +84,37 @@ class Widget_ImageFeature extends Widget_Base
 				'default' => '#',
 			]
 		);
-        $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-                'name' => 'thumbnail',
-                'label' => __('Image Size', 'bedemo'),
-                'show_label' => true,
-                'default' => 'medium_large',
-                'exclude' => ['custom'],
-            ]
-        );
+		$this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail',
+				'label' => __('Image Size', 'bedemo'),
+				'show_label' => true,
+				'default' => 'medium_large',
+				'exclude' => ['custom'],
+			]
+		);
 
-        $this->add_responsive_control(
-            'image_ratio',
-            [
-                'label' => __('Image Ratio', 'bedemo'),
-                'type' => Controls_Manager::SLIDER,
-                'default' => [
-                    'size' => 0.66,
-                ],
-                'range' => [
-                    'px' => [
-                        'min' => 0.3,
-                        'max' => 2,
-                        'step' => 0.01,
-                    ],
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .bt-cover-image' => 'padding-bottom: calc( {{SIZE}} * 100% );',
-                ],
-            ]
-        );
+		$this->add_responsive_control(
+			'image_ratio',
+			[
+				'label' => __('Image Ratio', 'bedemo'),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0.66,
+				],
+				'range' => [
+					'px' => [
+						'min' => 0.3,
+						'max' => 2,
+						'step' => 0.01,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .bt-cover-image' => 'padding-bottom: calc( {{SIZE}} * 100% );',
+				],
+			]
+		);
 		$this->end_controls_section();
 	}
 
@@ -250,25 +250,26 @@ class Widget_ImageFeature extends Widget_Base
 		} else {
 			$image = '<img src="' . esc_url($settings['image']['url']) . '" alt="">';
 		}
-		$select_theme = $settings['select_theme'] ?? 'bt-cleanira';
-		$theme_class = '';
-		if ($select_theme === 'bt-cleanira') {
-			$theme_class = 'bt-cleanira';
-		} elseif ($select_theme === 'bt-awakenur') {
-			$theme_class = 'bt-awakenur';
-		} 
+		$theme_class = $settings['select_theme'] ?? 'default';
 ?>
-		<div class="bt-elwg-image-feature--default <?php echo esc_attr($theme_class) ?>">
+		<div class="bt-elwg-image-feature--<?php echo esc_attr($theme_class) ?>">
 			<div class="bt-image-feature-item">
 				<?php echo '<div class="bt-cover-image">' . $image . '</div>'; ?>
 				<?php
-				if (!empty($settings['title'])) {
-					if (!empty($settings['link'])) {
-						echo '<div class="bt-button-image"><a href="' . esc_url($settings['link']) . '" class="button" target="_blank">' . $settings['title'] . '</a></div>';
-					}
+				if (!empty($settings['link'])) {
+					echo '<div class="bt-button-image"><a href="' . esc_url($settings['link']) . '" class="button" target="_blank">' . esc_html__('View Page', 'bedemo') . '</a></div>';
 				}
 				?>
 			</div>
+			<?php
+			if (!empty($settings['title'])) {
+				if (!empty($settings['link'])) {
+					echo '<div class="bt-title"><a href="' . esc_url($settings['link']) . '" target="_blank">' . $settings['title'] . '</a></div>';
+				} else {
+					echo '<div class="bt-title">' . $settings['title'] . '</div>';
+				}
+			}
+			?>
 		</div>
 <?php
 	}
