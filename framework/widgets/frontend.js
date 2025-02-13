@@ -104,36 +104,35 @@
 		});
 
 	};
-
 	var ImageSliderHandler = function ($scope, $) {
-		const $imageslider = $scope.find('.bt-elwg-image-slider--default');
-		if ($imageslider.length > 0) {
-			const $direction = $imageslider.data('direction');
-			const $item = $imageslider.data('item');
-			const $itemTablet = $imageslider.data('item-tablet');
-			const $itemMobile = $imageslider.data('item-mobile');
-			const $speed = $imageslider.data('speed');
-			const $spaceBetween = $imageslider.data('spacebetween');
+		const imageSlider = $scope.find('.bt-elwg-image-slider--default');
+		if (imageSlider.length > 0) {
+			const direction = imageSlider.data('direction');
+			const item = imageSlider.data('item');
+			const itemTablet = imageSlider.data('item-tablet');
+			const itemMobile = imageSlider.data('item-mobile');
+			const speed = imageSlider.data('speed');
+			const spaceBetween = imageSlider.data('spacebetween');
 
-			const $swiper = new Swiper($imageslider[0], {
-				slidesPerView: $itemMobile,
+			const swiper = new Swiper(imageSlider[0], {
+				slidesPerView: itemMobile,
 				loop: true,
-				spaceBetween: $spaceBetween,
-				speed: $speed,
+				spaceBetween: spaceBetween,
+				speed: speed,
 				freeMode: true,
 				allowTouchMove: true,
 				autoplay:
 				{
 					delay: 0,
-					reverseDirection: $direction == 'rtl' ? true : false,
+					reverseDirection: direction == 'rtl' ? true : false,
 					disableOnInteraction: false,
 				},
 				breakpoints: {
 					1024: {
-						slidesPerView: $item,
+						slidesPerView: item,
 					},
 					768: {
-						slidesPerView: $itemTablet,
+						slidesPerView: itemTablet,
 					},
 				},
 			});
@@ -150,7 +149,7 @@
 			const $swiper = new Swiper($imageslider[0], {
 
 				direction: 'vertical',
-				slidesPerView: $item,
+				slidesPerView: 5,
 				loop: true,
 				spaceBetween: $spaceBetween,
 				speed: $speed,
@@ -165,25 +164,24 @@
 		}
 	};
 	var ReviewSliderHandler = function ($scope, $) {
-		const $reviewlider = $scope.find('.bt-elwg-review-slider--default');
-		if ($reviewlider.length > 0) {
-			const $direction = $reviewlider.data('direction');
-			const $item = 3;
-			const $speed = $reviewlider.data('speed');
-			const $spaceBetween = $reviewlider.data('spacebetween');
+		const reviewlider = $scope.find('.bt-elwg-review-slider--default');
+		if (reviewlider.length > 0) {
+			const direction = reviewlider.data('direction');
+			const item = reviewlider.data('item') || 3;
+			const speed = reviewlider.data('speed');
+			const spaceBetween = reviewlider.data('spacebetween');
 
-			const $swiper = new Swiper($reviewlider[0], {
-
+			const swiper = new Swiper(reviewlider[0], {
 				direction: 'vertical',
-				slidesPerView: $item,
+				slidesPerView: item,
 				loop: true,
-				spaceBetween: $spaceBetween,
-				speed: $speed,
+				spaceBetween: spaceBetween,
+				speed: speed,
 				freeMode: true,
 				allowTouchMove: true,
 				autoplay: {
 					delay: 0,
-					reverseDirection: $direction == 'rtl' ? true : false,
+					reverseDirection: direction == 'rtl' ? true : false,
 					disableOnInteraction: false,
 				}
 			});
@@ -293,7 +291,7 @@
 				pagination: $dots ? {
 					el: ".swiper-pagination",
 					clickable: true,
-				} : false,
+				} : false, 
 				breakpoints: {
 					1024: {
 						slidesPerView: $item,
