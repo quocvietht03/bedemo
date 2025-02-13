@@ -105,26 +105,25 @@
 
 	};
 	var ImageSliderHandler = function ($scope, $) {
-		const imageSlider = $scope.find('.bt-elwg-image-slider--default');
+		var imageSlider = $scope.find('.bt-elwg-image-slider--default');
 		if (imageSlider.length > 0) {
-			const direction = imageSlider.data('direction');
-			const item = imageSlider.data('item');
-			const itemTablet = imageSlider.data('item-tablet');
-			const itemMobile = imageSlider.data('item-mobile');
-			const speed = imageSlider.data('speed');
-			const spaceBetween = imageSlider.data('spacebetween');
+			var direction = imageSlider.data('direction') || 'ltr';
+			var item = imageSlider.data('item') || 1;
+			var itemTablet = imageSlider.data('item-tablet') || 1;
+			var itemMobile = imageSlider.data('item-mobile') || 1;
+			var speed = imageSlider.data('speed') || 300;
+			var spaceBetween = imageSlider.data('spacebetween') || 10;
 
-			const swiper = new Swiper(imageSlider[0], {
+			new Swiper(imageSlider[0], {
 				slidesPerView: itemMobile,
 				loop: true,
 				spaceBetween: spaceBetween,
 				speed: speed,
 				freeMode: true,
 				allowTouchMove: true,
-				autoplay:
-				{
+				autoplay: {
 					delay: 0,
-					reverseDirection: direction == 'rtl' ? true : false,
+					reverseDirection: direction === 'rtl',
 					disableOnInteraction: false,
 				},
 				breakpoints: {
@@ -138,15 +137,16 @@
 			});
 		}
 	};
-	var ImageSliderVerticalHandler = function ($scope, $) {
-		const $imageslider = $scope.find('.bt-elwg-image-slider-vertical--default');
-		if ($imageslider.length > 0) {
-			const $direction = $imageslider.data('direction');
-			const $item = 5;
-			const $speed = $imageslider.data('speed');
-			const $spaceBetween = $imageslider.data('spacebetween');
 
-			const $swiper = new Swiper($imageslider[0], {
+	var ImageSliderVerticalHandler = function ($scope, $) {
+		var $imageslider = $scope.find('.bt-elwg-image-slider-vertical--default');
+		if ($imageslider.length > 0) {
+			var $direction = $imageslider.data('direction');
+			var $item = 5;
+			var $speed = $imageslider.data('speed');
+			var $spaceBetween = $imageslider.data('spacebetween');
+
+			var $swiper = new Swiper($imageslider[0], {
 
 				direction: 'vertical',
 				slidesPerView: 5,
@@ -164,14 +164,14 @@
 		}
 	};
 	var ReviewSliderHandler = function ($scope, $) {
-		const reviewlider = $scope.find('.bt-elwg-review-slider--default');
+		var reviewlider = $scope.find('.bt-elwg-review-slider--default');
 		if (reviewlider.length > 0) {
-			const direction = reviewlider.data('direction');
-			const item = reviewlider.data('item') || 3;
-			const speed = reviewlider.data('speed');
-			const spaceBetween = reviewlider.data('spacebetween');
+			var direction = reviewlider.data('direction');
+			var item = reviewlider.data('item') || 3;
+			var speed = reviewlider.data('speed');
+			var spaceBetween = reviewlider.data('spacebetween');
 
-			const swiper = new Swiper(reviewlider[0], {
+			var swiper = new Swiper(reviewlider[0], {
 				direction: 'vertical',
 				slidesPerView: item,
 				loop: true,
@@ -189,13 +189,13 @@
 	};
 
 	var TextSliderHandler = function ($scope, $) {
-		const $textslider = $scope.find('.bt-elwg-text-slider--default');
+		var $textslider = $scope.find('.bt-elwg-text-slider--default');
 		if ($textslider.length > 0) {
-			const $direction = $textslider.data('direction');
-			const $speed = $textslider.data('speed');
-			const $spaceBetween = $textslider.data('spacebetween');
+			var $direction = $textslider.data('direction');
+			var $speed = $textslider.data('speed');
+			var $spaceBetween = $textslider.data('spacebetween');
 
-			const $swiper = new Swiper($textslider[0], {
+			var $swiper = new Swiper($textslider[0], {
 				slidesPerView: 'auto',
 				loop: true,
 				spaceBetween: $spaceBetween,
@@ -212,17 +212,17 @@
 		}
 	};
 	function BedemoAnimateText(selector, delayFactor = 50) {
-		const $text = $(selector);
-		const textContent = $text.text();
+		var $text = $(selector);
+		var textContent = $text.text();
 		$text.empty();
 
 		let letterIndex = 0;
 
 		textContent.split(" ").forEach((word) => {
-			const $wordSpan = $("<span>").addClass("bt-word");
+			var $wordSpan = $("<span>").addClass("bt-word");
 
 			word.split("").forEach((char) => {
-				const $charSpan = $("<span>").addClass("bt-letter").text(char);
+				var $charSpan = $("<span>").addClass("bt-letter").text(char);
 				$charSpan.css("animation-delay", `${letterIndex * delayFactor}ms`);
 				$wordSpan.append($charSpan);
 				letterIndex++;
@@ -241,11 +241,11 @@
 			return;
 		}
 		function checkIfElementInView() {
-			const windowHeight = $(window).height();
-			const elementOffsetTop = animationElement.offset().top;
-			const elementOffsetBottom = elementOffsetTop + animationElement.outerHeight();
+			var windowHeight = $(window).height();
+			var elementOffsetTop = animationElement.offset().top;
+			var elementOffsetBottom = elementOffsetTop + animationElement.outerHeight();
 
-			const isElementInView =
+			var isElementInView =
 				elementOffsetTop < $(window).scrollTop() + windowHeight &&
 				elementOffsetBottom > $(window).scrollTop();
 
@@ -266,23 +266,23 @@
 		});
 	}
 	var ImageFeatureSliderHandler = function ($scope, $) {
-		const $imageslider = $scope.find('.bt-feature-slider-js');
+		var $imageslider = $scope.find('.bt-feature-slider-js');
 		if ($imageslider.length > 0) {
-			const $direction = $imageslider.data('direction');
-			const $item = $imageslider.data('item');
-			const $itemTablet = $imageslider.data('item-tablet');
-			const $itemMobile = $imageslider.data('item-mobile');
-			const $speed = $imageslider.data('speed');
-			const $spaceBetween = $imageslider.data('spacebetween');
-			const $autoplay = $imageslider.data('autoplay');
-			const $dots = $imageslider.data('dots');
-			const $swiper = new Swiper($imageslider[0], {
+			var $direction = $imageslider.data('direction');
+			var $item = $imageslider.data('item');
+			var $itemTablet = $imageslider.data('item-tablet');
+			var $itemMobile = $imageslider.data('item-mobile');
+			var $speed = $imageslider.data('speed');
+			var $spaceBetween = $imageslider.data('spacebetween');
+			var $autoplay = $imageslider.data('autoplay');
+			var $dots = $imageslider.data('dots');
+			var $swiper = new Swiper($imageslider[0], {
 				slidesPerView: $itemMobile,
 				loop: false,
 				spaceBetween: $spaceBetween,
 				speed: $speed,
 				freeMode: true,
-		 		allowTouchMove: true,
+				allowTouchMove: true,
 				autoplay: $autoplay ? {
 					delay: 300,
 					reverseDirection: $direction == 'rtl',
@@ -291,7 +291,7 @@
 				pagination: $dots ? {
 					el: ".swiper-pagination",
 					clickable: true,
-				} : false, 
+				} : false,
 				breakpoints: {
 					1024: {
 						slidesPerView: $item,
