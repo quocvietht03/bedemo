@@ -88,11 +88,15 @@ body {
       }
     }
   }
-  &.bt-section-demo-homepage{
+  &.bt-section-demo-homepage {
     .e-grid {
       @media (max-width: $break-xs) {
         --e-con-grid-template-columns: 1fr !important;
       }
+    }
+    .elementor-widget-counter {
+      mask-mode: alpha;
+      -webkit-mask-image: linear-gradient(180deg, #317c6f 0%, rgba(49, 124, 111, 0) 90%);
     }
   }
   &.bt-section-hight-quality {
