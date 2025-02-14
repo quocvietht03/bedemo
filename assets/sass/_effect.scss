@@ -831,7 +831,7 @@ body {
 			transform: translateX(100%);
 		}
 		&:hover {
-			color: #EBD5B8;
+			color: #EBD5B8 !important;
 			fill: #EBD5B8;
 			transition: 0.5s ease-in-out;
 			&::before {

@@ -3489,7 +3489,7 @@ body {
   transform: translateX(100%);
 }
 .bt-button-hover-awakenur a:hover {
-  color: #EBD5B8;
+  color: #EBD5B8 !important;
   fill: #EBD5B8;
   transition: 0.5s ease-in-out;
 }
@@ -7853,18 +7853,18 @@ body {
   cursor: pointer;
 }
 
-.bt-elwg-image-feature--default .bt-image-feature-item {
+.bt-elwg-image-feature--cleanira .bt-image-feature-item {
   position: relative;
   border-radius: 16px;
   box-shadow: 0px 10px 25px 0px rgba(54, 95, 104, 0.1);
   overflow: hidden;
   cursor: pointer;
 }
-.bt-elwg-image-feature--default .bt-image-feature-item .bt-cover-image img, .bt-elwg-image-feature--default .bt-image-feature-item .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature--default .bt-image-feature-item .wc-cover-image img {
+.bt-elwg-image-feature--cleanira .bt-image-feature-item .bt-cover-image img, .bt-elwg-image-feature--cleanira .bt-image-feature-item .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature--cleanira .bt-image-feature-item .wc-cover-image img {
   object-position: top center;
   transition: 5s all;
 }
-.bt-elwg-image-feature--default .bt-image-feature-item .bt-button-image {
+.bt-elwg-image-feature--cleanira .bt-image-feature-item .bt-button-image {
   padding: 20px 15px;
   background: linear-gradient(0deg, #2d77dc 3.87%, rgba(45, 119, 220, 0.4) 71.16%, rgba(45, 119, 220, 0) 100%);
   text-align: center;
@@ -7878,7 +7878,7 @@ body {
   transform: translateY(100%);
   transition: 0.5s all;
 }
-.bt-elwg-image-feature--default .bt-image-feature-item .bt-button-image a {
+.bt-elwg-image-feature--cleanira .bt-image-feature-item .bt-button-image a {
   color: #212121;
   text-align: center;
   font-family: "Mulish", Sans-serif;
@@ -7893,17 +7893,17 @@ body {
   display: block;
 }
 @media (max-width: 850px) and (min-width: 767.98px) {
-  .bt-elwg-image-feature--default .bt-image-feature-item .bt-button-image a {
+  .bt-elwg-image-feature--cleanira .bt-image-feature-item .bt-button-image a {
     font-size: 14px;
     padding: 9px 35px;
   }
 }
-.bt-elwg-image-feature--default .bt-image-feature-item:hover .bt-button-image {
+.bt-elwg-image-feature--cleanira .bt-image-feature-item:hover .bt-button-image {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-.bt-elwg-image-feature--default .bt-image-feature-item:hover .bt-cover-image img, .bt-elwg-image-feature--default .bt-image-feature-item:hover .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature--default .bt-image-feature-item:hover .wc-cover-image img {
+.bt-elwg-image-feature--cleanira .bt-image-feature-item:hover .bt-cover-image img, .bt-elwg-image-feature--cleanira .bt-image-feature-item:hover .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature--cleanira .bt-image-feature-item:hover .wc-cover-image img {
   object-position: bottom center;
 }
 .bt-elwg-image-feature--awakenur {
@@ -7996,29 +7996,29 @@ body {
   color: inherit;
 }
 
-.bt-elwg-image-feature-slider--default {
+.bt-elwg-image-feature-slider--cleanira {
   overflow: initial;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider {
   list-style: none;
   padding: 0;
   margin-bottom: 38px;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image--item:hover .bt-image-feature-item .bt-cover-image img, .bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image--item:hover .bt-image-feature-item .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image--item:hover .bt-image-feature-item .wc-cover-image img {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image--item:hover .bt-image-feature-item .bt-cover-image img, .bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image--item:hover .bt-image-feature-item .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image--item:hover .bt-image-feature-item .wc-cover-image img {
   object-position: bottom center;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item {
   position: relative;
   border-radius: 16px;
   box-shadow: 0px 10px 25px 0px rgba(54, 95, 104, 0.1);
   overflow: hidden;
   cursor: pointer;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item .bt-cover-image img, .bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item .wc-cover-image img {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item .bt-cover-image img, .bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item .woocommerce .woocommerce-loop-product__thumbnail .wc-cover-image img, .woocommerce .woocommerce-loop-product__thumbnail .bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item .wc-cover-image img {
   object-position: top center;
   transition: 8s all;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item .bt-button-image {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item .bt-button-image {
   padding: 20px 15px;
   background: linear-gradient(0deg, #2d77dc 3.87%, rgba(45, 119, 220, 0.4) 71.16%, rgba(45, 119, 220, 0) 100%);
   text-align: center;
@@ -8032,7 +8032,7 @@ body {
   transform: translateY(100%);
   transition: 0.5s all;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item .bt-button-image a {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item .bt-button-image a {
   color: #212121;
   text-align: center;
   font-family: "Mulish", Sans-serif;
@@ -8047,17 +8047,17 @@ body {
   display: block;
 }
 @media (max-width: 850px) and (min-width: 767.98px) {
-  .bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item .bt-button-image a {
+  .bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item .bt-button-image a {
     font-size: 14px;
     padding: 9px 35px;
   }
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-slider .bt-image-feature-item:hover .bt-button-image {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-slider .bt-image-feature-item:hover .bt-button-image {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-title {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-title {
   color: #212121;
   text-align: center;
   font-family: "Mulish", Sans-serif;
@@ -8067,13 +8067,13 @@ body {
   line-height: 28px;
   margin: 13px 0 0 0;
 }
-.bt-elwg-image-feature-slider--default .bt-image-feature-title a {
+.bt-elwg-image-feature-slider--cleanira .bt-image-feature-title a {
   color: inherit;
 }
-.bt-elwg-image-feature-slider--default .swiper-pagination {
+.bt-elwg-image-feature-slider--cleanira .swiper-pagination {
   position: relative;
 }
-.bt-elwg-image-feature-slider--default .swiper-pagination .swiper-pagination-bullet {
+.bt-elwg-image-feature-slider--cleanira .swiper-pagination .swiper-pagination-bullet {
   width: 20px;
   height: 20px;
   background: transparent;
@@ -8081,10 +8081,10 @@ body {
   position: relative;
   opacity: 1;
 }
-.bt-elwg-image-feature-slider--default .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.bt-elwg-image-feature-slider--cleanira .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   border-color: #212121;
 }
-.bt-elwg-image-feature-slider--default .swiper-pagination .swiper-pagination-bullet::before {
+.bt-elwg-image-feature-slider--cleanira .swiper-pagination .swiper-pagination-bullet::before {
   content: "";
   position: absolute;
   width: 8px;

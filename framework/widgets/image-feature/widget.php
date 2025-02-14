@@ -47,9 +47,9 @@ class Widget_ImageFeature extends Widget_Base
 			[
 				'label' => esc_html__('Select Themes', 'bedemo'),
 				'type' => Controls_Manager::SELECT,
-				'default' => 'default',
+				'default' => 'cleanira',
 				'options' => [
-					'default' => esc_html__('Cleanira', 'bedemo'),
+					'cleanira' => esc_html__('Cleanira', 'bedemo'),
 					'awakenur' => esc_html__('Awakenur', 'bedemo'),
 				],
 			]
@@ -250,14 +250,14 @@ class Widget_ImageFeature extends Widget_Base
 		} else {
 			$image = '<img src="' . esc_url($settings['image']['url']) . '" alt="">';
 		}
-		$theme_class = $settings['select_theme'] ?? 'default';
+		$theme_class = $settings['select_theme'] ?? 'cleanira';
 ?>
 		<div class="bt-elwg-image-feature--<?php echo esc_attr($theme_class) ?>">
 			<div class="bt-image-feature-item">
 				<?php echo '<div class="bt-cover-image">' . $image . '</div>'; ?>
 				<?php
 				if (!empty($settings['link'])) {
-					echo '<div class="bt-button-image"><a href="' . esc_url($settings['link']) . '" class="button" target="_blank">' . esc_html__('View Page', 'bedemo') . '</a></div>';
+					echo '<div class="bt-button-image bt-button-hover-'.$theme_class.'"><a href="' . esc_url($settings['link']) . '" class="bt-button" target="_blank"><span class="bt-heading">' . esc_html__('View Page', 'bedemo') . '</span></a></div>';
 				}
 				?>
 			</div>
