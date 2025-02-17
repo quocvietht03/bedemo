@@ -145,7 +145,7 @@
 			var $item = 5;
 			var $speed = $imageslider.data('speed');
 			var $spaceBetween = $imageslider.data('spacebetween');
-
+			var $autoplay = $imageslider.data('autoplay');
 			var $swiper = new Swiper($imageslider[0], {
 
 				direction: 'vertical',
@@ -155,11 +155,11 @@
 				speed: $speed,
 				freeMode: true,
 				allowTouchMove: true,
-				autoplay: {
-					delay: 0,
-					reverseDirection: $direction == 'rtl' ? true : false,
+				autoplay: $autoplay ? {
+					delay: 300,
+					reverseDirection: $direction == 'rtl',
 					disableOnInteraction: false,
-				}
+				} : false,
 			});
 		}
 	};

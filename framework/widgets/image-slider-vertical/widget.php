@@ -136,6 +136,16 @@ class Widget_ImageSliderVertical extends Widget_Base
             ]
         );
         $this->add_control(
+            'slider_autoplay',
+            [
+                'label' => __('Enable Autoplay', 'bedemo'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => __('Yes', 'bedemo'),
+                'label_off' => __('No', 'bedemo'),
+                'default' => 'no',
+            ]
+        );
+        $this->add_control(
             'slider_direction_rlt',
             [
                 'label' => __('Slider Direction RTL', 'bedemo'),
@@ -190,14 +200,18 @@ class Widget_ImageSliderVertical extends Widget_Base
         } else {
             $slider_direction = 'ltr';
         }
-        
+        if ($settings['slider_autoplay'] === 'yes') {
+            $autoplay = true;
+        } else {
+            $autoplay = false;
+        }
         $slider_item_desktop = $settings['slider_item']['size'] ?? $settings['slider_item'];
         $slider_item_tablet = $settings['slider_item_tablet'] ?? 2;
         $slider_item_mobile = $settings['slider_item_mobile'] ?? 1;
         $slider_speed = $settings['slider_speed'];
         $slider_space_between = $settings['slider_spacebetween'];
         ?>
-        <div class="bt-elwg-image-slider-vertical--default swiper" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
+        <div class="bt-elwg-image-slider-vertical--default swiper" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-image-slider swiper-wrapper">
                 <?php foreach ($settings['list'] as $index => $item) {
                     $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);

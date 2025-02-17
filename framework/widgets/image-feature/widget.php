@@ -51,6 +51,7 @@ class Widget_ImageFeature extends Widget_Base
 				'options' => [
 					'cleanira' => esc_html__('Cleanira', 'bedemo'),
 					'awakenur' => esc_html__('Awakenur', 'bedemo'),
+					'autoart' => esc_html__('Autoart', 'bedemo'),
 				],
 			]
 		);
