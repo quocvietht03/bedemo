@@ -277,7 +277,11 @@ body {
     .elementor-icon-box-content {
       border-radius: 35px;
       border: 1px solid #dadada;
-      padding: 86px 50px 55px 50px;
+      padding: 86px 20px 55px 20px;
+      .elementor-icon-box-description{
+        max-width: 330px;
+        margin: 0 auto;
+      }
     }
   }
   .bt-heading-center {
