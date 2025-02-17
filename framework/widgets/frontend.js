@@ -147,7 +147,7 @@
 			var $spaceBetween = $imageslider.data('spacebetween');
 			var $autoplay = $imageslider.data('autoplay');
 			var $swiper = new Swiper($imageslider[0], {
-
+				lazy: true,
 				direction: 'vertical',
 				slidesPerView: 5,
 				loop: true,

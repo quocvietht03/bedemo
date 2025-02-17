@@ -216,9 +216,10 @@ class Widget_ImageSliderVertical extends Widget_Base
                 <?php foreach ($settings['list'] as $index => $item) {
                     $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);
                     if (!empty($attachment)) {
-                        $image = '<img src="' . esc_url($attachment[0]) . '" alt="" class="skip-lazy">';
+                        $image = '<img src="' . esc_url($attachment[0]) . '" alt="" class="swiper-lazy skip-lazy">';
+                        
                     } else {
-                        $image = '<img src="' . esc_url($item['image_item']['url']) . '" alt="" class="skip-lazy">';
+                        $image = '<img src="' . esc_url($item['image_item']['url']) . '" alt="" class="swiper-lazy skip-lazy">';
                     }
                 ?>
                     <li class="bt-image--item swiper-slide">
