@@ -501,6 +501,23 @@
     }
   }
   &.bt-section-header-autoart {
+    .elementor-widget-nav-menu {
+      .elementor-nav-menu {
+        .elementor-item {
+          @media (max-width: 1270px) and (min-width: $break-tl) {
+            --e-nav-menu-horizontal-menu-item-margin: calc(20px / 2);
+            font-size: 17px;
+          }
+          &.elementor-item-active {
+            color: #222222;
+            fill: #222222;
+            &::after {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
     &.elementor-sticky {
       &--effects {
         background: #fff;
@@ -508,6 +525,13 @@
         > .e-con-inner {
           padding-top: 10px;
           padding-bottom: 10px;
+        }
+        .elementor-widget-icon{
+          .elementor-icon{
+            svg{
+              fill: #222222;
+            }
+          }
         }
         .elementor-nav-menu--main {
           .elementor-nav-menu {
@@ -534,20 +558,13 @@
       }
     }
     .bt-col-menu-header {
-      @media (max-width: $break-lg) and (min-width: $break-tl) {
+      @media (max-width: 1390px) and (min-width: $break-tl) {
         --width: 55%;
       }
     }
     .bt-col-button-header {
-      @media (max-width: $break-lg) and (min-width: $break-tl) {
+      @media (max-width: 1390px) and (min-width: $break-tl) {
         --width: 20%;
-      }
-    }
-    .elementor-nav-menu {
-      .elementor-item {
-        @media (max-width: $break-lg) and (min-width: $break-tl) {
-          font-size: 18px;
-        }
       }
     }
     @media (max-width: 1250px) and (min-width: $break-tl) {
