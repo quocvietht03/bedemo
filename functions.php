@@ -87,12 +87,7 @@ if (!function_exists('bedemo_enqueue_admin_scripts')) {
 }
 
 /* CPT Load */
-require_once get_template_directory().'/framework/cpt-service.php';
-require_once get_template_directory().'/framework/cpt-team.php';
-require_once get_template_directory().'/framework/cpt-testimonial.php';
-require_once get_template_directory().'/framework/cpt-podcast.php';
-require_once get_template_directory().'/framework/cpt-client.php';
-require_once get_template_directory().'/framework/cpt-pricing.php';
+require_once get_template_directory().'/framework/cpt-betheme.php';
 
 /* ACF Options */
 require_once get_template_directory() . '/framework/acf-options.php';

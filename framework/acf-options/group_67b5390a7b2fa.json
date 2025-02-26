@@ -1,93 +1,13 @@
 {
-    "key": "group_6593aa9571364",
-    "title": "Pricing Options",
+    "key": "group_67b5390a7b2fa",
+    "title": "BearsThemes",
     "fields": [
         {
-            "key": "field_6594acfa360a5",
-            "label": "Featured",
-            "name": "featured",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
-        },
-        {
-            "key": "field_6594ad77360a6",
-            "label": "Featured Text",
-            "name": "featured_text",
+            "key": "field_67b53a079b986",
+            "label": "Sub Title",
+            "name": "sub_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6593aa96262bb",
-            "label": "Price",
-            "name": "price",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6593acaf8efb9",
-            "label": "Unit",
-            "name": "unit",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6593aad4d3469",
-            "label": "Description",
-            "name": "description",
-            "aria-label": "",
-            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -98,14 +18,83 @@
             },
             "default_value": "",
             "maxlength": "",
-            "rows": 4,
+            "allow_in_bindings": 0,
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6593aae7d346a",
-            "label": "Features",
-            "name": "features",
+            "key": "field_67b7e7168fba3",
+            "label": "Link Theme",
+            "name": "link_theme",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67b82ad8f506a",
+            "label": "Price",
+            "name": "price",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67b5390adeb22",
+            "label": "Thumbnail Preview",
+            "name": "thumb_preview",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_67b5395fdeb23",
+            "label": "List Features",
+            "name": "list_features",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -125,9 +114,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6593ab00d346b",
-                    "label": "Text",
-                    "name": "text",
+                    "key": "field_67b539c80b5b1",
+                    "label": "Item",
+                    "name": "item",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -140,44 +129,13 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_6593aae7d346a"
+                    "parent_repeater": "field_67b5395fdeb23"
                 }
             ]
-        },
-        {
-            "key": "field_6593ab16d346c",
-            "label": "Choose Button",
-            "name": "choose_button",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
-            "key": "field_6593abe9e0822",
-            "label": "More Link",
-            "name": "more_link",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         }
     ],
     "location": [
@@ -185,12 +143,12 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "pricing"
+                "value": "betheme"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -198,5 +156,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722480888
+    "modified": 1740124455
 }

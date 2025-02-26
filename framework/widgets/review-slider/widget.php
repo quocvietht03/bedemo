@@ -178,9 +178,6 @@ class Widget_ReviewSlider extends Widget_Base
                             if(!empty($item['name'])) {
                                 echo '<h3 class="bt-review--name">' . $item['name'] . '</h3>';
                             }
-                            if(!empty($item['text'])) {
-                                echo '<div class="bt-review--text">' . $item['text'] . '</div>';
-                            }
                             if(!empty($item['rating'])) {
                                 $stars = '';
                                 for( $i = 1; $i <= 5; $i++ ) {
@@ -197,6 +194,10 @@ class Widget_ReviewSlider extends Widget_Base
 
                                 echo '<div class="bt-review--rating">' . $stars . '</div>';
                             }
+                            if(!empty($item['text'])) {
+                                echo '<div class="bt-review--text">' . $item['text'] . '</div>';
+                            }
+                         
                         ?>
                         
                     </li>

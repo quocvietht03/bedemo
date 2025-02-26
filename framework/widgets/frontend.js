@@ -94,16 +94,6 @@
 
 	};
 
-	var TabsHandler = function ($scope, $) {
-		// console.log($scope);
-
-		$scope.find('.bt-nav-item').on('click', function (e) {
-			e.preventDefault();
-			$(this).addClass('bt-is-active').siblings().removeClass('bt-is-active');
-			$($.attr(this, 'href')).addClass('bt-is-active').siblings().removeClass('bt-is-active');
-		});
-
-	};
 	var ImageSliderHandler = function ($scope, $) {
 		var imageSlider = $scope.find('.bt-elwg-image-slider--default');
 		if (imageSlider.length > 0) {
@@ -303,17 +293,86 @@
 			});
 		}
 	};
+	var ThemeFilterHandler = function ($scope, $) {
+		var $themeFilter = $scope.find('.bt-elwg-theme-filter--default'),
+			$JsonFilter = $themeFilter.find('.bt-category-list'),
+			$itemFilter = $themeFilter.find('.bt-category-list li');
+
+		$itemFilter.on('click', function (e) {
+			e.preventDefault();
+			$itemFilter.removeClass('active');
+			$(this).addClass('active');
+			var cat_id = $(this).data('id');
+			var jsonData = $JsonFilter.data('json');
+			var param_ajax = {
+				action: 'bt_filter_themes',
+				cat_id: cat_id,
+				json_data: jsonData
+			};
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: option_ob.ajaxurl, 
+				data: param_ajax,
+				context: this,
+				beforeSend: function () {
+					$themeFilter.find('.bt-content-theme').addClass('loading');
+				},
+				success: function (response) {
+					if (response.success) {
+						setTimeout(function () {
+							$themeFilter.find('.bt-content-theme').removeClass('loading');
+							$themeFilter.find('.bt-load-theme-list').html(response.data['items']).fadeIn('slow');
+						}, 300);
+
+					} else {
+						console.log('error');
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					console.log('The following error occured: ' + textStatus, errorThrown);
+				}
+			});
+
+		});
+	}
+	var FeatureSliderVerticalHandler = function ($scope, $) {
+		var $featureslider = $scope.find('.bt-elwg-features-slider-vertical--default');
+		if ($featureslider.length > 0) {
+			var $direction = $featureslider.data('direction');
+			var $item = 5;
+			var $speed = $featureslider.data('speed');
+			var $spaceBetween = $featureslider.data('spacebetween');
+			var $autoplay = $featureslider.data('autoplay');
+			var $swiper = new Swiper($featureslider[0], {
+				lazy: true,
+				direction: 'vertical',
+				slidesPerView: 5,
+				loop: true,
+				spaceBetween: $spaceBetween,
+				speed: $speed,
+				freeMode: true,
+				allowTouchMove: true,
+				autoplay: $autoplay ? {
+					delay: 300,
+					reverseDirection: $direction == 'rtl',
+					disableOnInteraction: false,
+				} : false,
+			});
+		}
+	};
 	// Make sure you run this code under Elementor.
 	$(window).on('elementor/frontend/init', function () {
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-testimonial-slider.default', SliderSyncingHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-step-list.default', MoreStepsHandler);
-		elementorFrontend.hooks.addAction('frontend/element_ready/bt-pricing-tabs.default', TabsHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-heading-animation.default', headingAnimationHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-image-slider.default', ImageSliderHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-image-slider-vertical.default', ImageSliderVerticalHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-review-slider.default', ReviewSliderHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-text-slider.default', TextSliderHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/bt-image-feature-slider.default', ImageFeatureSliderHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/bt-theme-filter.default', ThemeFilterHandler);
+		elementorFrontend.hooks.addAction('frontend/element_ready/bt-features-slider-vertical.default', FeatureSliderVerticalHandler);
 	});
 
 })(jQuery);

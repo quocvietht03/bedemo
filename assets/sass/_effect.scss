@@ -644,7 +644,7 @@ body {
 		}
 		.elementor-button-content-wrapper,
 		.bt-heading {
-			> span{
+			> span {
 				position: relative;
 				z-index: 99;
 			}
@@ -737,7 +737,7 @@ body {
 		}
 		.elementor-button-content-wrapper,
 		.bt-heading {
-			> span{
+			> span {
 				position: relative;
 				z-index: 99;
 			}
@@ -804,7 +804,7 @@ body {
 		position: relative;
 		overflow: hidden;
 		z-index: 1;
-		color: #4F320E;
+		color: #4f320e;
 		&::before,
 		&::after {
 			content: "";
@@ -821,18 +821,18 @@ body {
 		&::before {
 			right: -50px;
 			border-right: 50px solid transparent;
-			border-bottom: 80px solid #4F320E;
+			border-bottom: 80px solid #4f320e;
 			transform: translateX(-100%);
 		}
 		&::after {
 			left: -50px;
 			border-left: 50px solid transparent;
-			border-top: 80px solid #4F320E;
+			border-top: 80px solid #4f320e;
 			transform: translateX(100%);
 		}
 		&:hover {
-			color: #EBD5B8 !important;
-			fill: #EBD5B8;
+			color: #ebd5b8 !important;
+			fill: #ebd5b8;
 			transition: 0.5s ease-in-out;
 			&::before {
 				transform: translateX(-49%);
@@ -849,3 +849,104 @@ body {
 		}
 	}
 }
+@keyframes effectVibrateImages {
+	0% {
+		transform: translateY(12px);
+	}
+
+	50% {
+		transform: translateY(6px);
+	}
+
+	100% {
+		transform: translateY(12px);
+	}
+}
+
+@keyframes effectVibrateImagesSink {
+	100% {
+		transform: translateY(12px);
+	}
+}
+.bt-images-vibrate-effect {
+	img {
+		animation-name: effectVibrateImagesSink, effectVibrateImages;
+		animation-duration: 0.3s, 1.5s;
+		animation-delay: 0s, 0.3s;
+		animation-timing-function: ease-out, ease-in-out;
+		animation-iteration-count: 1, infinite;
+		animation-fill-mode: forwards;
+	}
+}
+@for $i from 0 through 4 {
+	@keyframes card_fade_#{$i + 1} {
+		#{$i * 20%} {
+			opacity: 0;
+		}
+		#{($i + 1) * 20%} {
+			opacity: 1;
+		}
+	}
+}
+
+.bt-loading-card {
+	.bt-card {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -100px;
+		margin-top: -150px;
+		width: 200px;
+		height: 300px;
+		border: 10px solid #ffcf37;
+		border-radius: 30px;
+		background-color: transparent;
+		outline: 20px solid transparent;
+		transform: rotateZ(-28deg) rotateY(27deg) rotateX(50deg);
+		opacity: 0;
+
+		.bt-bg-logo {
+			background: url(../images/site-logo.png) center/contain no-repeat;
+			transform: rotate(90deg);
+			display: block;
+			width: 215px;
+			height: 151px;
+			position: absolute;
+			left: -12px;
+			top: 57px;
+		}
+	}
+
+	@for $i from 0 through 4 {
+		.bt-card:nth-of-type(#{$i + 1}) {
+			margin-top: -150px - $i * 20px;
+			animation: card_fade_#{$i + 1} 3s ease infinite;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.bt-card {
+			margin-left: -66.67px;
+			margin-top: -100px;
+			width: 133.33px;
+			height: 200px;
+			border: 6px solid #ffcf37;
+			outline: 12px solid transparent;
+			.bt-bg-logo {
+				width: 143.33px;
+				height: 100.67px;
+				left: -8px;
+				top: 38px;
+			}
+		}
+
+		@for $i from 0 through 4 {
+			.bt-card:nth-of-type(#{$i + 1}) {
+				margin-top: -100px - $i * 13.33px;
+			}
+		}
+	}
+}
+
+
+

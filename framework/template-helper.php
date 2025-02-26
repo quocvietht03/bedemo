@@ -121,7 +121,7 @@ if (!function_exists('bedemo_page_title')) {
 		}elseif (is_archive()) {
 			if (is_category()){
 				single_cat_title();
-			}elseif(get_post_type() == 'service'||get_post_type() == 'team'){
+			}elseif(get_post_type() == 'betheme'){
 				single_term_title();
 			}elseif (get_post_type() == 'product'){
 				if(wc_get_page_id( 'shop' )){

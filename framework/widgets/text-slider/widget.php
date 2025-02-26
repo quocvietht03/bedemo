@@ -56,8 +56,8 @@ class Widget_TextSlider extends Widget_Base
             [
                 'label' => esc_html__('Text Item', 'bedemo'),
                 'type' => Controls_Manager::TEXT,
-				'label_block' => true,
-				'default' => __( 'This is text', 'bedemo' ),
+                'label_block' => true,
+                'default' => __('This is text', 'bedemo'),
             ]
         );
 
@@ -81,7 +81,17 @@ class Widget_TextSlider extends Widget_Base
                 ],
             ]
         );
-
+        $this->add_control(
+            'spacing_image',
+            [
+                'label' => __('Spacing Image', 'bedemo'),
+                'type' => Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => '',
+                ],
+                'description' => __('Select image to display between text items', 'bedemo'),
+            ]
+        );
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -118,6 +128,34 @@ class Widget_TextSlider extends Widget_Base
         );
 
         $this->end_controls_section();
+        $this->start_controls_section(
+            'section_text_style',
+            [
+                'label' => esc_html__('Text Style', 'bedemo'),
+            ]
+        );
+        $this->add_control(
+            'text_color',
+            [
+                'label' => __('Text Color', 'bedemo'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#111111',
+                'selectors' => [
+                    '{{WRAPPER}} .bt-text--item span' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'date_typography',
+				'label' => __( 'Typography', 'bedemo' ),
+				'default' => '',
+				'selector' => '{{WRAPPER}} .bt-text--item span',
+			]
+		);
+        $this->end_controls_section();
     }
 
     protected function register_controls()
@@ -137,19 +175,24 @@ class Widget_TextSlider extends Widget_Base
         } else {
             $slider_direction = 'ltr';
         }
-        
+
         $slider_speed = $settings['slider_speed'];
         $slider_space_between = $settings['slider_spacebetween'];
-        ?>
+?>
         <div class="bt-elwg-text-slider--default swiper" data-direction="<?php echo esc_attr($slider_direction) ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-text-slider swiper-wrapper">
                 <?php foreach ($settings['list'] as $index => $item) { ?>
                     <li class="bt-text--item swiper-slide">
                         <?php echo '<span>' . $item['text_item'] . '</span>'; ?>
+                        <?php if (!empty($settings['spacing_image'])) { ?>
+                            <img src="<?php echo esc_url($settings['spacing_image']['url']); ?>" alt="" />
+                        <?php } ?>
+                    </li>
                 <?php } ?>
+
             </ul>
         </div>
-    <?php
+<?php
     }
 
     protected function content_template() {}

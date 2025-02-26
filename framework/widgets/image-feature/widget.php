@@ -49,6 +49,7 @@ class Widget_ImageFeature extends Widget_Base
 				'type' => Controls_Manager::SELECT,
 				'default' => 'cleanira',
 				'options' => [
+					'bearsthemes' => esc_html__('Bearsthemes', 'bedemo'),
 					'cleanira' => esc_html__('Cleanira', 'bedemo'),
 					'awakenur' => esc_html__('Awakenur', 'bedemo'),
 					'autoart' => esc_html__('Autoart', 'bedemo'),
