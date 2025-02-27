@@ -326,7 +326,7 @@
 						setTimeout(function () {
 							$themeFilter.find('.bt-content-theme').removeClass('loading');
 							$themeFilter.find('.bt-load-theme-list').html(response.data['items']).fadeIn('slow');
-						}, 30000);
+						}, 300);
 						if (cat_id && cat_id !== 0) {
 							jsonData.category = [cat_id];
 							$JsonFilter.attr("data-json", JSON.stringify(jsonData));
