@@ -144,3 +144,6 @@ if(function_exists('get_field')){
 	}
 	add_filter('body_class', 'bedemo_body_class');
 }
+
+
+

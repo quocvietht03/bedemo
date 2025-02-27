@@ -6,3 +6,20 @@
     color: $color-accent;
   }
 }
+.bt-section-footer{
+  > .e-con-inner{
+    > .elementor-element{
+      @media(max-width:$break-sm){
+        &.elementor-widget-button{
+          .elementor-button-wrapper{
+            .elementor-button-icon{
+              svg{
+                width: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -675,6 +675,31 @@ body {
               height: auto;
             }
           }
+          .elementor-icon-box-content {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+    > .e-con-inner {
+      > .elementor-element {
+        > .elementor-element {
+          @media (max-width: $break-lg) and (min-width: $break-tl) {
+            &:nth-child(1) {
+              .elementor-icon-box-wrapper {
+                .elementor-icon-box-icon {
+                  --icon-box-icon-margin: 15px;
+                  .elementor-icon {
+                    font-size: 68px;
+                  }
+                }
+                .elementor-icon-box-title {
+                  font-size: 28px;
+                }
+              }
+            }
+          }
         }
       }
     }
