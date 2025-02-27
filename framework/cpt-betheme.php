@@ -35,8 +35,12 @@ function bedemo_betheme_register() {
 		'hierarchical'    => false,
 		'menu_icon'       => 'dashicons-admin-post',
 		'rewrite'         => array('slug' => $cpt_slug), // Permalinks format
-		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments')
-  );
+		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments'),
+		'menu_position'    => 5, 
+		'has_archive'     => false, 
+		'query_var'       => true, 
+		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'page-attributes'), 
+	);
 
   add_filter( 'enter_title_here',  'bedemo_betheme_change_default_title');
 
@@ -235,4 +239,3 @@ function bt_load_more_themes() {
 }
 add_action( 'wp_ajax_bt_load_more_themes', 'bt_load_more_themes' );
 add_action( 'wp_ajax_nopriv_bt_load_more_themes', 'bt_load_more_themes' );
-
