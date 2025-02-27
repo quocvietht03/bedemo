@@ -172,9 +172,77 @@ function bt_filter_themes() {
     } 
 	wp_reset_postdata();
 	$output['items'] = ob_get_clean();
- 
+	$output['has_more'] = $query->found_posts > $json_data['posts_per_page'];
 	wp_send_json_success($output);
     wp_die();
 }
 add_action( 'wp_ajax_bt_filter_themes', 'bt_filter_themes' );
 add_action( 'wp_ajax_nopriv_bt_filter_themes', 'bt_filter_themes' );
+
+function bt_load_more_themes() {
+    if ( ! isset( $_POST['page'] ) || ! isset( $_POST['json_data'] ) ) {
+        wp_die();
+    }
+
+    $page = intval( $_POST['page'] );
+    $json_data = $_POST['json_data'];
+
+    $args = [
+        'post_type' => 'betheme',
+        'post_status' => 'publish',
+        'posts_per_page' => $json_data['posts_per_page'],
+        'orderby' => $json_data['orderby'],
+        'order' => $json_data['order'],
+        'paged' => $page,
+    ];
+
+    if (! empty($json_data['ids'])) {
+        $args['post__in'] = $json_data['ids'];
+    }
+
+    if (! empty($json_data['ids_exclude'])) {
+        $args['post__not_in'] = $json_data['ids_exclude'];
+    }
+	if( ! empty( $json_data['category'] ) ) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' 		=> 'betheme_categories',
+				'terms' 		=> $json_data['category'],
+				'field' 		=> 'term_id',
+				'operator' 		=> 'IN'
+			)
+		);
+	}
+
+	if( ! empty( $json_data['category_exclude'] ) ) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' 		=> 'betheme_categories',
+				'terms' 		=> $json_data['category_exclude'],
+				'field' 		=> 'term_id',
+				'operator' 		=> 'NOT IN'
+			)
+		);
+	}
+    $query = new WP_Query( $args );
+    ob_start();
+    if ( $query->have_posts() ) {
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            get_template_part('framework/templates/theme', 'style1', array('image-size' => $json_data['thumbnail_size'], 'layout' => 'default'));
+        }
+    } else {
+        wp_send_json_error(['message' => 'No more themes found.']);
+    }
+    
+    wp_reset_postdata();
+    $output['items'] = ob_get_clean();
+	$output['pages'] = $page + 1;
+    $output['has_more'] = $query->found_posts > ($page * $json_data['posts_per_page']);
+
+    wp_send_json_success($output);
+    wp_die();
+}
+add_action( 'wp_ajax_bt_load_more_themes', 'bt_load_more_themes' );
+add_action( 'wp_ajax_nopriv_bt_load_more_themes', 'bt_load_more_themes' );
+

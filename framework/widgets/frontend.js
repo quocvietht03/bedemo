@@ -296,14 +296,16 @@
 	var ThemeFilterHandler = function ($scope, $) {
 		var $themeFilter = $scope.find('.bt-elwg-theme-filter--default'),
 			$JsonFilter = $themeFilter.find('.bt-category-list'),
-			$itemFilter = $themeFilter.find('.bt-category-list li');
-
+			$itemFilter = $themeFilter.find('.bt-category-list li'),
+			$buttonShowMore = $themeFilter.find('.bt-button-all a');
+			
 		$itemFilter.on('click', function (e) {
 			e.preventDefault();
 			$itemFilter.removeClass('active');
 			$(this).addClass('active');
 			var cat_id = $(this).data('id');
 			var jsonData = $JsonFilter.data('json');
+			
 			var param_ajax = {
 				action: 'bt_filter_themes',
 				cat_id: cat_id,
@@ -317,14 +319,27 @@
 				context: this,
 				beforeSend: function () {
 					$themeFilter.find('.bt-content-theme').addClass('loading');
+					$buttonShowMore.text('See all Demos').prop('disabled', false);
 				},
 				success: function (response) {
 					if (response.success) {
 						setTimeout(function () {
 							$themeFilter.find('.bt-content-theme').removeClass('loading');
 							$themeFilter.find('.bt-load-theme-list').html(response.data['items']).fadeIn('slow');
-						}, 300);
-
+						}, 30000);
+						if (cat_id && cat_id !== 0) {
+							jsonData.category = [cat_id];
+							$JsonFilter.attr("data-json", JSON.stringify(jsonData));
+						}else{
+							jsonData.category = "";
+							$JsonFilter.attr("data-json", JSON.stringify(jsonData));
+						}
+						$buttonShowMore.attr("data-page", 2);
+						if (!response.data['has_more']) {
+							$buttonShowMore.hide();
+						} else {
+							$buttonShowMore.show();
+						}
 					} else {
 						console.log('error');
 					}
@@ -334,6 +349,43 @@
 				}
 			});
 
+		});
+		$buttonShowMore.on('click', function (e) {
+			e.preventDefault();
+			var idpage = parseInt($(this).attr('data-page'));
+			var jsonData = $JsonFilter.data('json');
+			var param_ajax = {
+				action: 'bt_load_more_themes',
+				page: idpage,
+				json_data: jsonData
+			};
+			console.log(idpage);
+			$.ajax({
+				type: 'POST',
+				dataType: 'json',
+				url: option_ob.ajaxurl,
+				data: param_ajax,
+				beforeSend: function () {
+					$buttonShowMore.text('Loading...').prop('disabled', true);
+				},
+				success: function (response) {
+					if (response.success) {
+						$themeFilter.find('.bt-load-theme-list').append(response.data['items']);
+						$buttonShowMore.attr("data-page", response.data['pages']);
+						if (!response.data['has_more']) {
+							$buttonShowMore.hide();
+						} else {
+							$buttonShowMore.text('See all Demos').prop('disabled', false);
+						}
+					} else {
+						console.log('error');
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					console.log('The following error occurred: ' + textStatus, errorThrown);
+					$buttonShowMore.text('See all Demos').prop('disabled', false);
+				}
+			});
 		});
 	}
 	var FeatureSliderVerticalHandler = function ($scope, $) {
