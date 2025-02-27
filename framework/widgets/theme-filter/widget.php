@@ -163,16 +163,6 @@ class Widget_ThemeFilter extends Widget_Base
 			]
 		);
 
-		$this->add_control(
-			'category',
-			[
-				'label' => __('Category', 'bedemo'),
-				'type' => Controls_Manager::SELECT2,
-				'options' => $this->get_supported_taxonomies(),
-				'label_block' => true,
-				'multiple' => true,
-			]
-		);
 
 		$this->end_controls_tab();
 
@@ -190,17 +180,6 @@ class Widget_ThemeFilter extends Widget_Base
 				'label' => __('Ids', 'bedemo'),
 				'type' => Controls_Manager::SELECT2,
 				'options' => $this->get_supported_ids(),
-				'label_block' => true,
-				'multiple' => true,
-			]
-		);
-
-		$this->add_control(
-			'category_exclude',
-			[
-				'label' => __('Category', 'bedemo'),
-				'type' => Controls_Manager::SELECT2,
-				'options' => $this->get_supported_taxonomies(),
 				'label_block' => true,
 				'multiple' => true,
 			]
@@ -492,27 +471,6 @@ class Widget_ThemeFilter extends Widget_Base
 		if (! empty($settings['ids_exclude'])) {
 			$args['post__not_in'] = $settings['ids_exclude'];
 		}
-		if (! empty($settings['category'])) {
-			$args['tax_query'] = array(
-				array(
-					'taxonomy' 		=> 'betheme_categories',
-					'terms' 		=> $settings['category'],
-					'field' 		=> 'term_id',
-					'operator' 		=> 'IN'
-				)
-			);
-		}
-
-		if (! empty($settings['category_exclude'])) {
-			$args['tax_query'] = array(
-				array(
-					'taxonomy' 		=> 'betheme_categories',
-					'terms' 		=> $settings['category_exclude'],
-					'field' 		=> 'term_id',
-					'operator' 		=> 'NOT IN'
-				)
-			);
-		}
 
 
 		return $query = new \WP_Query($args);
@@ -529,8 +487,7 @@ class Widget_ThemeFilter extends Widget_Base
 			'ids' => $settings['ids'],
 			'ids_exclude' => $settings['ids_exclude'],
 			'thumbnail_size' => $settings['thumbnail_size'],
-			'category' => $settings['category'],
-			'category_exclude' => $settings['category_exclude'],
+			'category' => '',
 		]);
 ?>
 		<div class="bt-elwg-theme-filter--default">

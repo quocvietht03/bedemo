@@ -214,16 +214,6 @@ function bt_load_more_themes() {
 		);
 	}
 
-	if( ! empty( $json_data['category_exclude'] ) ) {
-		$args['tax_query'] = array(
-			array(
-				'taxonomy' 		=> 'betheme_categories',
-				'terms' 		=> $json_data['category_exclude'],
-				'field' 		=> 'term_id',
-				'operator' 		=> 'NOT IN'
-			)
-		);
-	}
     $query = new WP_Query( $args );
     ob_start();
     if ( $query->have_posts() ) {
