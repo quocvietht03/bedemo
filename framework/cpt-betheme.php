@@ -39,7 +39,7 @@ function bedemo_betheme_register() {
 		'menu_position'    => 5, 
 		'has_archive'     => false, 
 		'query_var'       => true, 
-		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'page-attributes'), 
+		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments'), 
 	);
 
   add_filter( 'enter_title_here',  'bedemo_betheme_change_default_title');
@@ -87,13 +87,86 @@ function bedemo_betheme_change_default_title( $title ) {
 	return $title;
 }
 
+function bedemo_betheme_add_post_order_meta() {
+    add_meta_box(
+        'betheme_post_order',
+        esc_html__('Post Order', 'bedemo'),
+        'bedemo_betheme_post_order_callback',
+        'betheme',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'bedemo_betheme_add_post_order_meta');
+
+function bedemo_betheme_post_order_callback($post) {
+    $value = get_post_meta($post->ID, '_post_order', true);
+    echo '<label for="betheme_post_order_field">' . esc_html__('Post Order:', 'bedemo') . '</label>';
+    echo '<input type="number" id="betheme_post_order_field" name="betheme_post_order_field" value="' . esc_attr($value) . '" />';
+}
+
+function bedemo_betheme_save_post_order_meta($post_id) {
+    if (array_key_exists('betheme_post_order_field', $_POST)) {
+        update_post_meta(
+            $post_id,
+            '_post_order',
+            intval($_POST['betheme_post_order_field'])
+        );
+    }
+}
+add_action('save_post', 'bedemo_betheme_save_post_order_meta');
+
+function bedemo_betheme_quick_edit_custom_box($column_name, $post_type) {
+    if ($column_name !== 'post_order' || $post_type !== 'betheme') {
+        return;
+    }
+    ?>
+    <fieldset class="inline-edit-col-left">
+        <div class="inline-edit-group">
+            <label class="alignleft">
+                <span class="title"><?php esc_html_e('Post Order', 'bedemo'); ?></span>
+                <span class="input-text-wrap">
+                    <input type="number" name="betheme_post_order" class="betheme_post_order" value="" />
+                </span>
+            </label>
+        </div>
+    </fieldset>
+    <script>
+        jQuery(function($) {
+            function bedemo_quick_edit_fill_fields(id) {
+                var $post_row = $('#post-' + id);
+                var post_order = $post_row.find('.column-post_order').text().trim();
+
+                $('input.betheme_post_order').val(post_order);
+            }
+
+            var $edit_inline = inlineEditPost.edit;
+            inlineEditPost.edit = function(id) {
+                $edit_inline.apply(this, arguments);
+                var post_id = (typeof(id) == 'object') ? parseInt(this.getId(id)) : id;
+                bedemo_quick_edit_fill_fields(post_id);
+            };
+        });
+    </script>
+    <?php
+}
+add_action('quick_edit_custom_box', 'bedemo_betheme_quick_edit_custom_box', 10, 2);
+
+
+function bedemo_betheme_save_quick_edit_post_order($post_id) {
+    if (isset($_POST['betheme_post_order'])) {
+        update_post_meta($post_id, '_post_order', intval($_POST['betheme_post_order']));
+    }
+}
+add_action('save_post', 'bedemo_betheme_save_quick_edit_post_order');
 
 function bedemo_betheme_edit_columns( $betheme_columns ) {
 	$betheme_columns = array(
 		"cb"                     => "<input type=\"checkbox\" />",
 		"title"                  => esc_html__('Title', 'bedemo'),
 		"thumbnail"              => esc_html__('Thumbnail', 'bedemo'),
-		"betheme_categories" 			 => esc_html__('Categories', 'bedemo'),
+		"betheme_categories" 	 => esc_html__('Categories', 'bedemo'),
+		"post_order"             => esc_html__('Post Order', 'bedemo'), // Added Post Order column
 		"date"                   => esc_html__('Date', 'bedemo'),
 	);
 	return $betheme_columns;
@@ -130,6 +203,12 @@ function bedemo_betheme_column_display( $betheme_columns, $post_id ) {
 			echo esc_html__('None', 'bedemo');
 		}
 		break;
+
+		// Display the post order in the column view
+		case "post_order":
+			$post_order = get_post_meta($post_id, '_post_order', true);
+			echo esc_html($post_order ? $post_order : 'None'); // Display post order or 'None'
+			break;
 	}
 }
 add_action( 'manage_betheme_posts_custom_column', 'bedemo_betheme_column_display', 10, 2 );
@@ -149,6 +228,11 @@ function bt_filter_themes() {
 		'orderby' => $json_data['orderby'],
 		'order' => $json_data['order'],
 	];
+	if ($json_data['orderby'] == 'post_order') {
+		$args['orderby'] = 'meta_value_num';
+		$args['meta_key'] = '_post_order';
+		$args['order'] = $json_data['order'];
+	} 
 	if (!empty($cat_id) && $cat_id != 0) {
 		$args['tax_query'] = [
 			[
@@ -199,7 +283,11 @@ function bt_load_more_themes() {
         'order' => $json_data['order'],
         'paged' => $page,
     ];
-
+	if ($json_data['orderby'] == 'post_order') {
+		$args['orderby'] = 'meta_value_num';
+		$args['meta_key'] = '_post_order';
+		$args['order'] = $json_data['order'];
+	} 
     if (! empty($json_data['ids'])) {
         $args['post__in'] = $json_data['ids'];
     }
