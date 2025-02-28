@@ -39,7 +39,7 @@ function bedemo_betheme_register() {
 		'menu_position'    => 5, 
 		'has_archive'     => false, 
 		'query_var'       => true, 
-		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments'), 
+		'supports'        => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'page-attributes'), 
 	);
 
   add_filter( 'enter_title_here',  'bedemo_betheme_change_default_title');
