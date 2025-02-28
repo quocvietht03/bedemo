@@ -101,17 +101,25 @@ add_action('add_meta_boxes', 'bedemo_betheme_add_post_order_meta');
 
 function bedemo_betheme_post_order_callback($post) {
     $value = get_post_meta($post->ID, '_post_order', true);
+    // Set default value to 0 if not set
+    if (empty($value)) {
+        $value = 0;
+    }
     echo '<label for="betheme_post_order_field">' . esc_html__('Post Order:', 'bedemo') . '</label>';
     echo '<input type="number" id="betheme_post_order_field" name="betheme_post_order_field" value="' . esc_attr($value) . '" />';
 }
 
 function bedemo_betheme_save_post_order_meta($post_id) {
     if (array_key_exists('betheme_post_order_field', $_POST)) {
+        $post_order_value = intval($_POST['betheme_post_order_field']);
         update_post_meta(
             $post_id,
             '_post_order',
-            intval($_POST['betheme_post_order_field'])
+            $post_order_value
         );
+    } else {
+        // Set default value to 0 if no value is provided
+        update_post_meta($post_id, '_post_order', 0);
     }
 }
 add_action('save_post', 'bedemo_betheme_save_post_order_meta');
