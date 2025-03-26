@@ -17,7 +17,7 @@
             } else {
               ?>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-logo.png'); ?>" alt="Influencer Logo" />
+                  <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-logo.png'); ?>" alt="Site Logo" />
                 </a>
               <?php
             }

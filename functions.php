@@ -110,6 +110,9 @@ require_once get_template_directory().'/framework/block-load.php';
 /* Widgets Load */
 require_once get_template_directory().'/framework/widget-load.php';
 
+/* Interactive API */
+require_once get_template_directory().'/framework/interactive-api.php';
+
 
 if(function_exists('get_field')){
 	/* Orbit circle effect */
