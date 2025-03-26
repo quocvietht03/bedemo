@@ -38,7 +38,7 @@ function bti_get_purchase_theme($theme_name = 'Alone') {
 
     $link = get_field('link_purchase', $post_id);
 
-    return $link ? $link : '#';
+    return $link;
 
 }
 
@@ -107,7 +107,7 @@ function bti_get_exclude_related_themes($post_id) {
 }
 
 /* New themes query */
-function bti_new_themes_query($post_id, $limit = 5) {
+function bti_new_themes_query($post_id, $limit = 6) {
     if (!$post_id) {
         return;
     }
@@ -153,18 +153,15 @@ function bti_get_related_themes($theme_name = 'Alone') {
             $title = get_the_title();
             $sub_title = get_field('sub_title');
             $thumb = get_field('thumb_preview');
+            $thumb_url = $thumb['url'] ? $thumb['url'] : get_template_directory_uri() . '/assets/images/bti-placeholder.jpg';
             $link = get_field('link_theme');
             $price = get_field('price');
 
             ?>
                 <a target="_blank" href="<?php echo esc_url($link); ?>" title="<?php echo esc_attr($title); ?>">
                     <div class="bti-theme">
-                        <div class="bti-img-hover">
-                            <?php if($thumb) { ?>
-                                <img itemprop="image" width="225" height="114" src="<?php echo esc_url($thumb['url']); ?>" alt="<?php echo esc_attr($sub_title); ?>">
-                            <?php } else { ?>
-                                <img class="bti-no-image" itemprop="image" width="52" height="52" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-icon.png'); ?>" alt="<?php echo esc_html('Bearsthemes', 'bdemo'); ?>">
-                            <?php } ?>
+                        <div class="bti-img-hover bti-lazy-load">
+                            <img itemprop="image" data-image="<?php echo esc_url($thumb_url); ?>" width="225" height="114" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/bti-placeholder.jpg'); ?>" alt="<?php echo esc_attr($sub_title); ?>">
                         </div>
                         <div class="bti-theme-info">
                             <div class="bti-theme-title">
@@ -190,7 +187,7 @@ function bti_get_related_themes($theme_name = 'Alone') {
 }
 
 /* Get new themes */
-function bti_get_new_themes($theme_name = 'Alone', $limit = 5) {
+function bti_get_new_themes($theme_name = 'Alone', $limit = 6) {
     $post_id = bti_get_post_id_by_theme_name($theme_name);
     
     if (!$post_id) {
@@ -213,18 +210,15 @@ function bti_get_new_themes($theme_name = 'Alone', $limit = 5) {
             $title = get_the_title();
             $sub_title = get_field('sub_title');
             $thumb = get_field('thumb_preview');
+            $thumb_url = $thumb['url'] ? $thumb['url'] : get_template_directory_uri() . '/assets/images/bti-placeholder.jpg';
             $link = get_field('link_theme');
             $price = get_field('price');
 
             ?>
                 <a target="_blank" href="<?php echo esc_url($link); ?>" title="<?php echo esc_attr($title); ?>">
                     <div class="bti-theme">
-                        <div class="bti-img-hover">
-                            <?php if($thumb) { ?>
-                                <img itemprop="image" width="225" height="114" src="<?php echo esc_url($thumb['url']); ?>" alt="<?php echo esc_attr($sub_title); ?>">
-                            <?php } else { ?>
-                                <img class="bti-no-image" itemprop="image" width="52" height="52" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-icon.png'); ?>" alt="<?php echo esc_html('Bearsthemes', 'bdemo'); ?>">
-                            <?php } ?>
+                        <div class="bti-img-hover bti-lazy-load">
+                            <img itemprop="image" data-image="<?php echo esc_url($thumb_url); ?>" width="225" height="114" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/bti-placeholder.jpg'); ?>" alt="<?php echo esc_attr($sub_title); ?>">
                         </div>
                         <div class="bti-theme-info">
                             <div class="bti-theme-title">
@@ -251,6 +245,7 @@ function bti_get_new_themes($theme_name = 'Alone', $limit = 5) {
 
 function bti_themes_compaign_api_callback($request) {
     $theme = trim($request->get_param('theme'));
+    $link_purchase = bti_get_purchase_theme($theme);
 
     ob_start();
     ?>
@@ -270,18 +265,20 @@ function bti_themes_compaign_api_callback($request) {
             </div>
         </div>
 
-        <div class="bti-purchase" style="top: calc(40% + 25px);">
-            <a target="_blank" href="<?php echo esc_url(bti_get_purchase_theme($theme)); ?>" class="bti-btn" title="<?php echo esc_attr('Buy ' . $theme . ' Now!'); ?>">
-                <span class="bti-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                        <path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48C336 50.1 285.9 0 224 0S112 50.1 112 112l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/>
-                    </svg>
-                </span>
-                <span class="bti-purchase-text">
-                    <?php echo esc_html__('BUY NOW', 'bedemo'); ?>
-                </span>
-            </a>
-        </div>
+        <?php if($link_purchase) { ?>
+            <div class="bti-purchase" style="top: calc(40% + 25px);">
+                <a target="_blank" href="<?php echo esc_url($link_purchase); ?>" class="bti-btn" title="<?php echo esc_attr('Buy ' . $theme . ' Now!'); ?>">
+                    <span class="bti-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64l0 48-128 0 0-48zm-48 48l-64 0c-26.5 0-48 21.5-48 48L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-208c0-26.5-21.5-48-48-48l-64 0 0-48C336 50.1 285.9 0 224 0S112 50.1 112 112l0 48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/>
+                        </svg>
+                    </span>
+                    <span class="bti-purchase-text">
+                        <?php echo esc_html__('BUY NOW', 'bedemo'); ?>
+                    </span>
+                </a>
+            </div>
+        <?php } ?>
 
         <div class="bti-list-holder">
             <div class="bti-list">
