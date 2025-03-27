@@ -8,7 +8,7 @@ add_action('rest_api_init', function () {
         'callback' => 'bti_themes_compaign_api_callback',
         array(
             'theme' => 'Alone',
-            'btnpos' => '40%',
+            // 'btiFeatured' => '',
         ),
     ));
 });
@@ -249,7 +249,7 @@ function bti_themes_compaign_api_callback($request) {
 
     ob_start();
     ?>
-    <section class="bti-sidearea bti-bearsthemes bti-btn-horizontal-right bti-btn-alt-no bti-loaded bti-scrolled">
+    <section class="bti-sidearea bti-bearsthemes bti-btn-horizontal-right bti-btn-alt-no bti-loaded">
 
         <div class="bti-theme-dropdown" style="top: calc(40% - 25px);">
             <div class="bti-btn">
