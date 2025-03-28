@@ -210,7 +210,6 @@ class Widget_ThemeFilter extends Widget_Base
 					'post_title' => __('Title', 'bedemo'),
 					'menu_order' => __('Menu Order', 'bedemo'),
 					'rand' => __('Random', 'bedemo'),
-					'post_order' => __('Post Order', 'bedemo'),
 				],
 			]
 		);
@@ -464,11 +463,6 @@ class Widget_ThemeFilter extends Widget_Base
 			'orderby' => $settings['orderby'],
 			'order' => $settings['order'],
 		];
-		if ($settings['orderby'] == 'post_order') {
-			$args['orderby'] = 'meta_value_num';
-			$args['meta_key'] = '_post_order';
-			$args['order'] = $settings['order'];
-		} 
 		if (! empty($settings['ids'])) {
 			$args['post__in'] = $settings['ids'];
 		}

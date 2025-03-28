@@ -3,13 +3,19 @@ $link_theme = get_field('link_theme');
 $thumb_preview = get_field('thumb_preview');
 $sub_title = get_field('sub_title');
 $price = get_field('price');
-if (!empty($thumb_preview) && is_array($thumb_preview)) {
-  $attachment = wp_get_attachment_image_src($thumb_preview['id'], $args['image-size']);
-  if (!empty($attachment)) {
-    $image = '<img src="' . esc_url($attachment[0]) . '" alt="' . esc_attr__('Thumbnail Preview', 'bedemo') . '">';
-  } else {
-    $image = '<img src="' . esc_url($thumb_preview['url']) . '" alt="' . esc_attr__('Thumbnail Preview', 'bedemo') . '">';
-  }
+$image = '';
+
+if (!empty($thumb_preview)) {
+    if (is_array($thumb_preview)) {
+        $attachment = wp_get_attachment_image_src($thumb_preview['id'], $args['image-size']);
+        if (!empty($attachment)) {
+            $image = '<img src="' . esc_url($attachment[0]) . '" alt="' . esc_attr__('Thumbnail Preview', 'bedemo') . '">';
+        } else {
+            $image = '<img src="' . esc_url($thumb_preview['url']) . '" alt="' . esc_attr__('Thumbnail Preview', 'bedemo') . '">';
+        }
+    } else {
+        $image = '<img src="' . esc_url($thumb_preview) . '" alt="' . esc_attr__('Thumbnail Preview', 'bedemo') . '">';
+    }
 }
 ?>
 <article <?php post_class('bt-post'); ?>>
