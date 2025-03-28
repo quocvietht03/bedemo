@@ -39,7 +39,8 @@ class Widget_ThemeFilter extends Widget_Base
 
 		$wp_query = new \WP_Query(array(
 			'post_type' => 'betheme',
-			'post_status' => 'publish'
+			'post_status' => 'publish',
+			'posts_per_page' => -1
 		));
 
 		if ($wp_query->have_posts()) {
@@ -130,7 +131,7 @@ class Widget_ThemeFilter extends Widget_Base
 				'return_value' => 'yes',
 			]
 		);
-		
+
 		$this->end_controls_section();
 	}
 
