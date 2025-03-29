@@ -297,13 +297,13 @@ html {
     &--head {
       font-family: $secondary-font;
       font-size: 30px;
-      color: #fff;
+      color: #111;
       margin: 0 0 5px;
     }
     &--desc {
       font-size: 18px;
       line-height: 156%;
-      color: #ffffff;
+      color: #111;
     }
     &--button {
       @extend .__bt-button-dark-style;
@@ -348,7 +348,7 @@ html {
       line-height: 150%;
       color: #111;
       margin: 0 0 20px;
-      span {
+      span { 
         font-family: $secondary-font;
         color: #111;
       }

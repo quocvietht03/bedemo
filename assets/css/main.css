@@ -838,7 +838,7 @@ img.alignright {
 }
 
 .bt-container {
-  max-width: var(--container-max-width, 1140px);
+  max-width: var(--container-max-width, 1290px);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--container-default-padding-block-start, 15px);
@@ -1149,13 +1149,13 @@ html {
 .__bt-contact-information-style .bt-contact-information--head, .bt-elwg-contact-information .bt-contact-information--head, .bt-block-contact-information .bt-contact-information--head {
   font-family: var(--e-global-typography-secondary-font-family, "Bricolage Grotesque");
   font-size: 30px;
-  color: #fff;
+  color: #111;
   margin: 0 0 5px;
 }
 .__bt-contact-information-style .bt-contact-information--desc, .bt-elwg-contact-information .bt-contact-information--desc, .bt-block-contact-information .bt-contact-information--desc {
   font-size: 18px;
   line-height: 156%;
-  color: #ffffff;
+  color: #111;
 }
 .__bt-contact-information-style .bt-contact-information--button, .bt-elwg-contact-information .bt-contact-information--button, .bt-block-contact-information .bt-contact-information--button {
   text-transform: uppercase;

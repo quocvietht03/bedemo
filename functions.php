@@ -148,5 +148,14 @@ if(function_exists('get_field')){
 	add_filter('body_class', 'bedemo_body_class');
 }
 
+/* query id elementor Search Blog*/
+function bt_custom_search_blog_query($query)
+{
+    if (isset($query)) {
+        $query->set('post_type', 'post');
+        $query->set('s', get_search_query());
+    }
+}
+add_action('elementor/query/bt_search_blog', 'bt_custom_search_blog_query');
 
 
