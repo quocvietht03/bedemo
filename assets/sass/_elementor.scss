@@ -1627,12 +1627,12 @@
             align-items: center;
             gap: 8px;
             &.evento {
-              border: 2px solid #ffcf37;
-              background: transparent;
+              background: #111;
               padding: 13px 36px;
-              svg {
-                width: 75px;
-                height: 26px;
+              color: #fff;
+              .icon-evento {
+                width: 70px;
+                height: 24px;
               }
             }
           }

@@ -6996,13 +6996,13 @@ body {
   gap: 8px;
 }
 .bt-elwg-theme-feature--default .bt-theme-list .bt-post--button a.evento {
-  border: 2px solid #ffcf37;
-  background: transparent;
+  background: #111;
   padding: 13px 36px;
+  color: #fff;
 }
-.bt-elwg-theme-feature--default .bt-theme-list .bt-post--button a.evento svg {
-  width: 75px;
-  height: 26px;
+.bt-elwg-theme-feature--default .bt-theme-list .bt-post--button a.evento .icon-evento {
+  width: 70px;
+  height: 24px;
 }
 
 .bt-elwg-theme-filter--default .bt-content-theme {
