@@ -141,7 +141,7 @@ html {
   text-align: center;
   margin-bottom: 40px;
   .bt-sub-text {
-    color: #fb0f5a;
+    color: #ffcf37;
     font-family: $primary-font;
     font-size: 18px;
     font-weight: 700;
@@ -346,11 +346,11 @@ html {
       font-size: 26px;
       font-weight: 700;
       line-height: 150%;
-      color: $color-primary;
+      color: #111;
       margin: 0 0 20px;
       span {
         font-family: $secondary-font;
-        color: $color-accent;
+        color: #111;
       }
     }
     &--gallery {
@@ -378,6 +378,11 @@ html {
       .bt-cover-image {
         padding-bottom: 100%;
         border-radius: 15px;
+        transition: box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        img{
+          object-position: top;
+        }
       }
     }
     &--link {
@@ -389,7 +394,7 @@ html {
       font-weight: 700;
       line-height: 150%;
       text-decoration: underline;
-      color: $color-accent;
+      color: #111;
       margin-top: 16px;
       svg {
         fill: currentColor;
