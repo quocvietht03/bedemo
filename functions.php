@@ -158,4 +158,12 @@ function bt_custom_search_blog_query($query)
 }
 add_action('elementor/query/bt_search_blog', 'bt_custom_search_blog_query');
 
-
+/* Custom search posts */
+function bt_custom_search_filter( $query ) {
+    if ( $query->is_search() && !is_admin() ) {
+        if ( !is_post_type_archive( 'product' ) && !is_tax( 'product_cat' ) && !is_singular( 'product' ) ) {
+            $query->set( 'post_type', 'post' );
+        }
+    }
+}
+add_action( 'pre_get_posts', 'bt_custom_search_filter' );
