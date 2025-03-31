@@ -773,6 +773,9 @@
     .bt-post {
       @extend .__bt-post-style-2;
     }
+    @media(max-width:$break-tl){
+      grid-template-columns: repeat(2, 1fr);
+    }
     @media (max-width: $break-sm) {
       grid-template-columns: repeat(1, 1fr);
       .bt-post {
