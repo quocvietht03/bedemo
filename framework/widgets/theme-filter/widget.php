@@ -530,7 +530,7 @@ class Widget_ThemeFilter extends Widget_Base
 					</div>
 					<?php if ('yes' === $settings['button_toggle'] && $query->found_posts > $settings['posts_per_page']) : ?>
 						<div class="bt-button-all">
-							<a href="#" data-page="2" class="bt-button-hover btn btn-primary"><?php echo esc_attr__('See all Demos', 'bedemo'); ?><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+							<a href="#" data-page="2" class="bt-button-hover btn btn-primary"><span><?php echo esc_attr__('See all Demos', 'bedemo'); ?><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 									<path d="M15.938 5V13.125C15.938 13.3736 15.8392 13.6121 15.6634 13.7879C15.4876 13.9637 15.2491 14.0625 15.0005 14.0625C14.7518 14.0625 14.5134 13.9637 14.3375 13.7879C14.1617 13.6121 14.063 13.3736 14.063 13.125V7.26563L5.66374 15.6633C5.48762 15.8394 5.24875 15.9383 4.99967 15.9383C4.7506 15.9383 4.51173 15.8394 4.33561 15.6633C4.15949 15.4872 4.06055 15.2483 4.06055 14.9992C4.06055 14.7501 4.15949 14.5113 4.33561 14.3352L12.7348 5.9375H6.87545C6.62681 5.9375 6.38836 5.83873 6.21254 5.66291C6.03673 5.4871 5.93795 5.24864 5.93795 5C5.93795 4.75136 6.03673 4.5129 6.21254 4.33709C6.38836 4.16127 6.62681 4.0625 6.87545 4.0625H15.0005C15.2491 4.0625 15.4876 4.16127 15.6634 4.33709C15.8392 4.5129 15.938 4.75136 15.938 5Z" fill="#111111" />
 								</svg></span></a>
 						</div>
