@@ -3624,7 +3624,7 @@ body {
 
 .bt-button-elm-hover .elementor-button {
   position: relative;
-  display: block;
+  display: inline-block;
   overflow: hidden;
   transition: border-color 0.3s ease;
 }
@@ -3662,7 +3662,7 @@ body {
 
 .bt-button-elm-hover-style1 .elementor-button {
   position: relative;
-  display: block;
+  display: inline-block;
   overflow: hidden;
   transition: border-color 0.3s ease;
 }
@@ -3700,7 +3700,7 @@ body {
 
 .bt-button-hover {
   position: relative;
-  display: block;
+  display: inline-block;
   overflow: hidden;
   transition: border-color 0.3s ease;
 }
@@ -3739,7 +3739,7 @@ body {
 
 .bt-button-hover-style1 {
   position: relative;
-  display: block;
+  display: inline-block;
   overflow: hidden;
   transition: border-color 0.3s ease;
 }
