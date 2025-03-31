@@ -171,7 +171,7 @@ html :where(.editor-styles-wrapper) {
   transition: all 0.3s;
 }
 .widget a:hover, .widget a:focus {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .widget h1, .widget h2, .widget h3, .widget h4, .widget h5, .widget h6 {
   font-family: var(--e-global-typography-primary-font-family, "DM Sans");
@@ -302,14 +302,14 @@ html {
   line-height: 24px;
   font-weight: 700;
   color: #ffffff;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
   padding: 16px 35px;
-  border: 1px solid var(--e-global-color-accent, #2D77DC);
+  border: 1px solid var(--e-global-color-accent, #ffcf37);
   border-radius: 15px;
 }
 .__bt-button-style:hover, .bt-srq-box--book-link:hover, .__bt-button-dark-style:hover, .__bt-contact-information-style .bt-contact-information--button:hover, .bt-block-contact-information .bt-contact-information--button:hover, .widget button:hover, .widget input[type=submit]:hover, .__bt-button-style:focus, .bt-srq-box--book-link:focus, .__bt-button-dark-style:focus, .__bt-contact-information-style .bt-contact-information--button:focus, .bt-block-contact-information .bt-contact-information--button:focus, .widget button:focus, .widget input[type=submit]:focus {
   color: #ffffff;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
 }
 @media (max-width: 519.98px) {
   .__bt-button-style, .bt-srq-box--book-link, .__bt-button-dark-style, .__bt-contact-information-style .bt-contact-information--button, .bt-block-contact-information .bt-contact-information--button, .widget button, .widget input[type=submit] {
@@ -388,7 +388,7 @@ html {
 }
 .__bt-section-heading-style .bt-main-text span, .bt-social-mcn-ss.bt-style-2 .bt-social-mcn-ss--heading .bt-main-text span, .bt-social-mcn-ss.bt-style-1 .bt-social-mcn-ss--heading .bt-main-text span {
   font-family: var(--e-global-typography-secondary-font-family, "Bricolage Grotesque");
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 @media (max-width: 519.98px) {
   .__bt-section-heading-style .bt-sub-text, .bt-social-mcn-ss.bt-style-2 .bt-social-mcn-ss--heading .bt-sub-text, .bt-social-mcn-ss.bt-style-1 .bt-social-mcn-ss--heading .bt-sub-text {
@@ -421,7 +421,7 @@ html {
   left: 0;
   width: 8px;
   height: 100%;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
 }
 .__bt-block-heading-style:after, .widget .wp-block-heading:after,
 .widget .wg-title:after, .widget .widget-title:after {
@@ -433,7 +433,7 @@ html {
   height: 0;
   border-width: 6px 4px;
   border-style: solid;
-  border-color: var(--e-global-color-accent, #2D77DC) transparent transparent var(--e-global-color-accent, #2D77DC);
+  border-color: var(--e-global-color-accent, #ffcf37) transparent transparent var(--e-global-color-accent, #ffcf37);
 }
 
 .__bt-pagination-style {
@@ -456,12 +456,12 @@ html {
   border-radius: 10px;
 }
 .__bt-pagination-style .page-numbers:not(.current, .dots):hover {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .__bt-pagination-style .page-numbers.current {
   width: 42px;
   color: #ffffff;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
 }
 .__bt-pagination-style .page-numbers.prev, .__bt-pagination-style .page-numbers.next {
   width: 42px;
@@ -507,7 +507,7 @@ html {
   width: 34px;
   height: 34px;
   color: #fff;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
   border-radius: 100px;
 }
 .__bt-socials-style a.bt-facebook {
@@ -527,7 +527,7 @@ html {
 }
 
 .__bt-contact-information-style .bt-contact-information, .bt-block-contact-information .bt-contact-information {
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
   padding: 58px 40px;
   border-radius: 15px;
 }
@@ -718,7 +718,7 @@ html {
   font-weight: 700;
   line-height: 150%;
   text-decoration: underline;
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 @media (max-width: 991.98px) {
   .__bt-social-mcn-style-1 .bt-social-mcn--list .bt-social, .bt-social-mcn-ss.bt-style-1 .bt-social-mcn--list .bt-social {
@@ -795,7 +795,7 @@ html {
   font-weight: 700;
   line-height: 150%;
   text-decoration: underline;
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 @media (max-width: 991.98px) {
   .__bt-social-mcn-style-2 .bt-social-mcn--list .bt-social, .bt-social-mcn-ss.bt-style-2 .bt-social-mcn--list .bt-social {
@@ -855,7 +855,7 @@ html {
 }
 .bt-social-mcn-ss.bt-style-2 {
   position: relative;
-  background-color: var(--e-global-color-accent, #2D77DC);
+  background-color: var(--e-global-color-accent, #ffcf37);
   padding: 80px 0 135px;
 }
 @media (max-width: 767.98px) {
@@ -924,7 +924,7 @@ html {
   left: 0;
   width: 12px;
   height: 2px;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
 }
 .widget .wp-block-calendar caption, .widget .wp-block-calendar table,
 .widget .calendar_wrap caption,
@@ -948,7 +948,7 @@ html {
   color: var(--e-global-color-primary, #222);
 }
 .widget .wp-block-latest-comments__comment-meta a:hover {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .widget .wp-block-latest-comments__comment-excerpt {
   margin-top: 8px;
@@ -974,7 +974,7 @@ html {
   color: var(--e-global-color-primary, #222);
 }
 .widget .wp-block-latest-posts__post-title:hover {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .widget .wp-block-latest-posts__post-excerpt {
   width: 100%;
@@ -997,7 +997,7 @@ html {
   color: var(--e-global-color-primary, #222);
 }
 .widget .wp-block-rss__item-title a:hover {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .widget .wp-block-rss__item-excerpt {
   width: 100%;
@@ -1013,7 +1013,7 @@ html {
   color: var(--e-global-color-primary, #222);
 }
 .widget.widget_rss ul li a:hover {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .widget.widget_rss ul li .rss-date,
 .widget.widget_rss ul li cite {
@@ -1025,7 +1025,7 @@ html {
   color: var(--e-global-color-primary, #222);
 }
 .widget .wp-block-loginout a:hover {
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
 }
 .widget .wp-block-search__button {
   padding: 15px;
@@ -1049,7 +1049,7 @@ html {
   top: 0;
   height: 100%;
   color: #FFF;
-  background: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
   margin: 0;
   border-radius: 0 15px 15px 0;
 }
@@ -1103,8 +1103,8 @@ html {
 .widget .wp-block-tag-cloud a:hover,
 .widget .tagcloud a:hover {
   color: #FFFFFF;
-  background: var(--e-global-color-accent, #2D77DC);
-  border-color: var(--e-global-color-accent, #2D77DC);
+  background: var(--e-global-color-accent, #ffcf37);
+  border-color: var(--e-global-color-accent, #ffcf37);
 }
 
 .bt-block-recent-posts {
@@ -1135,7 +1135,7 @@ html {
   font-size: 14px;
   font-weight: 700;
   line-height: 150%;
-  color: var(--e-global-color-accent, #2D77DC);
+  color: var(--e-global-color-accent, #ffcf37);
   margin-bottom: 8px;
 }
 .bt-block-recent-posts .bt-post--title {

@@ -60,7 +60,7 @@ body {
 		&.red {
 			animation: effectOrbit 10s linear infinite;
 			span {
-				background: #FFCF37;
+				background: #ffcf37;
 				animation: effectOrbitScale 10s linear infinite;
 			}
 		}
@@ -947,6 +947,176 @@ body {
 		}
 	}
 }
+.bt-button-elm-hover {
+	.elementor-button {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		transition: border-color 0.3s ease;
 
+		.bt-span-hover {
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			background-color: #111;
+			transition:
+				width 0.4s ease-in-out,
+				height 0.4s ease-in-out;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+			will-change: width, height;
+		}
+		&:hover {
+			border-color: #111 !important;
+			.bt-span-hover {
+				width: 225%;
+				height: 562.5px;
+			}
+			.elementor-button-content-wrapper {
+				color: #fff;
+				transition: color 0.3s ease 0.1s;
+				svg {
+					path {
+						fill: #fff;
+						transition: fill 0.3s ease 0.1s;
+					}
+				}
+			}
+		}
+	}
+	.elementor-button-content-wrapper {
+		position: relative;
+		z-index: 2;
+	}
+}
+.bt-button-elm-hover-style1 {
+	.elementor-button {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		transition: border-color 0.3s ease;
 
-
+		.bt-span-hover {
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			border-radius: 50%;
+			background-color: $color-accent;
+			transition:
+				width 0.4s ease-in-out,
+				height 0.4s ease-in-out;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+			will-change: width, height;
+		}
+		&:hover {
+			border-color: $color-accent !important;
+			.bt-span-hover {
+				width: 225%;
+				height: 562.5px;
+			}
+			.elementor-button-content-wrapper {
+				color: #111;
+				transition: color 0.3s ease 0.1s;
+				svg {
+					path {
+						fill: #111;
+						transition: fill 0.3s ease 0.1s;
+					}
+				}
+			}
+		}
+	}
+	.elementor-button-content-wrapper {
+		position: relative;
+		z-index: 2;
+	}
+}
+.bt-button-hover {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	transition: border-color 0.3s ease;
+	span {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		position: relative;
+		z-index: 2;
+	}
+	.bt-span-hover {
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border-radius: 50%;
+		background-color: #111;
+		transition:
+			width 0.4s ease-in-out,
+			height 0.4s ease-in-out;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		will-change: width, height;
+	}
+	&:hover {
+		border-color: $color-accent !important;
+		.bt-span-hover {
+			width: 225%;
+			height: 562.5px;
+		}
+		span {
+			color: #fff;
+			svg {
+				path {
+					fill: #fff;
+				}
+			}
+		}
+	}
+}
+.bt-button-hover-style1 {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	transition: border-color 0.3s ease;
+	span {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		position: relative;
+		z-index: 2;
+	}
+	.bt-span-hover {
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border-radius: 50%;
+		background-color: $color-accent;
+		transition:
+			width 0.4s ease-in-out,
+			height 0.4s ease-in-out;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		will-change: width, height;
+	}
+	&:hover {
+		background: transparent !important;
+		border-color: $color-accent !important;
+		.bt-span-hover {
+			width: 225%;
+			height: 562.5px;
+		}
+		span {
+			color: #111;
+			svg {
+				path {
+					fill: #111;
+				}
+			}
+		}
+	}
+}

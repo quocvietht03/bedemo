@@ -1,32 +1,34 @@
 <?php
 get_header();
-get_template_part( 'framework/templates/site', 'titlebar');
+get_template_part('framework/templates/site', 'titlebar');
 
 ?>
 <main id="bt_main" class="bt-site-main">
 	<div class="bt-main-content-ss">
 		<div class="bt-container">
+			<div class="bt-form-search">
+				<h2 class="bt-form-head"><?php esc_html_e('Need a new search?', 'bedemo') ?></h2>
+				<p class="bt-form-subhead"><?php esc_html_e("If you didn't find what you were looking for, try a new search!", "bedemo") ?></p>
+				<?php get_search_form(); ?>
+			</div>
 			<?php
-				if( have_posts() ) {
-					?>
-						<div class="bt-list-post">
-							<?php
-								while ( have_posts() ) : the_post();
-						
-										get_template_part( 'framework/templates/post');
-								endwhile;
-							?>
-						</div>
+			if (have_posts()) {
+			?>
+				<div class="bt-list-post">
 					<?php
-					bedemo_paging_nav();
-				} else {
-					get_template_part( 'framework/templates/post', 'none');
-				}
+					while (have_posts()) : the_post();
+						get_template_part('framework/templates/post', 'style', array('image-size' => 'large'));
+					endwhile;
+					?>
+				</div>
+			<?php
+				bedemo_paging_nav();
+			} else {
+				get_template_part('framework/templates/post', 'none');
+			}
 			?>
 		</div>
 	</div>
 
-	<?php get_template_part( 'framework/templates/social', 'media-channels'); ?>
-</main><!-- #main -->
-
+</main>
 <?php get_footer(); ?>
