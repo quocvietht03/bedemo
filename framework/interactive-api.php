@@ -247,23 +247,28 @@ function bti_themes_compaign_api_callback($request) {
     $theme = trim($request->get_param('theme'));
     $link_purchase = bti_get_purchase_theme($theme);
 
+    $post_id = bti_get_post_id_by_theme_name($theme);
+    $enable_related = get_field('enable_related_themes', $post_id);
+    
     ob_start();
+    
     ?>
     <section class="bti-sidearea bti-bearsthemes bti-btn-horizontal-right bti-btn-alt-no bti-loaded">
-
-        <div class="bti-theme-dropdown" style="top: calc(40% - 25px);">
-            <div class="bti-btn">
-                <span class="bti-icon">
-                    <img itemprop="image" width="26" height="26" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-icon.png'); ?>" alt="<?php echo esc_html('Bearsthemes', 'bdemo'); ?>">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M307 34.8c-11.5 5.1-19 16.6-19 29.2l0 64-112 0C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96l96 0 0 64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z"/>
-                    </svg>
-                </span>
-                <span class="bti-text-name">
-                    <?php echo esc_html__('RELATED', 'bedemo'); ?>
-                </span>
+        <?php if($enable_related) { ?>
+            <div class="bti-theme-dropdown" style="top: calc(40% - 25px);">
+                <div class="bti-btn">
+                    <span class="bti-icon">
+                        <img itemprop="image" width="26" height="26" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-icon.png'); ?>" alt="<?php echo esc_html('Bearsthemes', 'bdemo'); ?>">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M307 34.8c-11.5 5.1-19 16.6-19 29.2l0 64-112 0C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96l96 0 0 64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z"/>
+                        </svg>
+                    </span>
+                    <span class="bti-text-name">
+                        <?php echo esc_html__('RELATED', 'bedemo'); ?>
+                    </span>
+                </div>
             </div>
-        </div>
+        <?php } ?>
 
         <?php if($link_purchase) { ?>
             <div class="bti-purchase" style="top: calc(40% + 25px);">
@@ -280,36 +285,38 @@ function bti_themes_compaign_api_callback($request) {
             </div>
         <?php } ?>
 
-        <div class="bti-list-holder">
-            <div class="bti-list">
-                <div class="bti-list-inner">
-                    <div class="bti-logo">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-logo.png'); ?>" alt="<?php echo esc_html('Bearsthemes', 'bdemo'); ?>" />
-                        </a>
-                    </div>
+        <?php if($enable_related) { ?>
+            <div class="bti-list-holder">
+                <div class="bti-list">
+                    <div class="bti-list-inner">
+                        <div class="bti-logo">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/site-logo.png'); ?>" alt="<?php echo esc_html('Bearsthemes', 'bdemo'); ?>" />
+                            </a>
+                        </div>
 
-                    <?php 
-                        echo bti_get_related_themes($theme);
-                        echo bti_get_new_themes($theme); 
-                    ?>
+                        <?php 
+                            echo bti_get_related_themes($theme);
+                            echo bti_get_new_themes($theme); 
+                        ?>
+                    </div>
+                </div>
+
+                <div class="bti-list-bottom">
+                    <a class="bti-link-holder" href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank">
+                        <span class="link-text-holder">
+                            <?php echo esc_html__('VIEW ALL BEARSTHEMES', 'bedemo'); ?>
+                        </span>
+                        <span class="link-svg-holder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <path d="M32 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c53 0 96-43 96-96l0-306.7 73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3 160 416c0 17.7-14.3 32-32 32l-96 0z"/>
+                            </svg>
+                        </span>
+                    </a>
                 </div>
             </div>
-
-            <div class="bti-list-bottom">
-                <a class="bti-link-holder" href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank">
-                    <span class="link-text-holder">
-                        <?php echo esc_html__('VIEW ALL BEARSTHEMES', 'bedemo'); ?>
-                    </span>
-                    <span class="link-svg-holder">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                            <path d="M32 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c53 0 96-43 96-96l0-306.7 73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3 160 416c0 17.7-14.3 32-32 32l-96 0z"/>
-                        </svg>
-                    </span>
-                </a>
-            </div>
-        </div>
-        </section>
+        <?php } ?>
+    </section>
     <?php
     $campaign_html = ob_get_clean();
     return rest_ensure_response($campaign_html);
