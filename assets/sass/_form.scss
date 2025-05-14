@@ -1,49 +1,6 @@
 .gform_wrapper {
     &.bt-estimate-project-form {
         &_wrapper {
-            --gf-form-gap-x: 30px;
-            --gf-form-gap-y: 30px;
-            --gf-form-footer-margin-y-start: 40px;
-
-            --gf-label-space-primary: 0;
-            --gf-ctrl-label-color-primary: #111;
-            --gf-ctrl-label-font-family-primary: inherit;
-            --gf-ctrl-label-font-size-primary: 16px;
-            --gf-ctrl-label-font-style-primary: normal;
-            --gf-ctrl-label-font-weight-primary: 600;
-
-            --gf-ctrl-desc-color: #999;
-            --gf-ctrl-desc-font-family: inherit;
-            --gf-ctrl-desc-font-size: 14px;
-            --gf-ctrl-desc-font-style: italic;
-            --gf-ctrl-desc-font-weight: 400;
-
-            --gf-ctrl-font-family: inherit;
-            --gf-ctrl-font-size: 16px;
-            --gf-ctrl-font-style: normal;
-            --gf-ctrl-font-weight: 400;
-            --gf-ctrl-line-height: 58px;
-            --gf-ctrl-size: 58px;
-            --gf-padding-x: 16px;
-            --gf-padding-y: 12px;
-            --gf-ctrl-border-color: #c7c7c7;
-            --gf-ctrl-radius: 8px;
-            --gf-ctrl-shadow: none;
-
-            --gf-ctrl-btn-font-family: inherit;
-            --gf-ctrl-btn-font-size: 16px;
-            --gf-ctrl-btn-font-style: normal;
-            --gf-ctrl-btn-font-weight: 600;
-            --gf-ctrl-btn-size: 58px;
-            --gf-ctrl-btn-color-primary: #111;
-            --gf-ctrl-btn-color-hover-primary: #fff;
-            --gf-ctrl-btn-color-focus-primary: #fff;
-            --gf-ctrl-btn-bg-color-primary: #FFCF37;
-            --gf-ctrl-btn-bg-color-hover-primary: #111;
-            --gf-ctrl-btn-bg-color-focus-primary: #111;
-            --gf-ctrl-btn-padding-x: 40px;
-            --gf-ctrl-btn-radius: 100px;
-
             ::-webkit-input-placeholder {
                 opacity: 0.5;
             }

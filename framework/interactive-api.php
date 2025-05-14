@@ -251,7 +251,7 @@ function bti_themes_compaign_api_callback($request) {
     $enable_related = get_field('enable_related_themes', $post_id);
     
     ob_start();
-    var_dump($enable_related);
+    
     ?>
     <section class="bti-sidearea bti-bearsthemes bti-btn-horizontal-right bti-btn-alt-no bti-loaded">
         <?php if($enable_related) { ?>

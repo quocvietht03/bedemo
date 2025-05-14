@@ -29,7 +29,7 @@ $price = get_field('price');
         }
         ?>
         <div class="bt-post--button">
-          <a href="<?php echo !empty($link_theme) ? esc_url($link_theme) : the_permalink(); ?>" <?php echo !empty($link_theme) ? 'target="_blank"' : ''; ?> class="bt-button-hover btn btn-primary"><span><?php echo esc_html__('View demos', 'bedemo') ?><svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+          <a href="<?php echo !empty($link_theme) ? esc_url($link_theme) : the_permalink(); ?>" <?php echo !empty($link_theme) ? 'target="_blank"' : ''; ?> class="bt-button-hover btn btn-primary"><span><?php echo esc_html__('Live Preview', 'bedemo') ?><svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
               <path d="M15.938 5.75V13.875C15.938 14.1236 15.8392 14.3621 15.6634 14.5379C15.4876 14.7137 15.2491 14.8125 15.0005 14.8125C14.7518 14.8125 14.5134 14.7137 14.3375 14.5379C14.1617 14.3621 14.063 14.1236 14.063 13.875V8.01563L5.66374 16.4133C5.48762 16.5894 5.24875 16.6883 4.99967 16.6883C4.7506 16.6883 4.51173 16.5894 4.33561 16.4133C4.15949 16.2372 4.06055 15.9983 4.06055 15.7492C4.06055 15.5001 4.15949 15.2613 4.33561 15.0852L12.7348 6.6875H6.87545C6.62681 6.6875 6.38836 6.58873 6.21254 6.41291C6.03673 6.2371 5.93795 5.99864 5.93795 5.75C5.93795 5.50136 6.03673 5.2629 6.21254 5.08709C6.38836 4.91127 6.62681 4.8125 6.87545 4.8125H15.0005C15.2491 4.8125 15.4876 4.91127 15.6634 5.08709C15.8392 5.2629 15.938 5.50136 15.938 5.75Z" fill="currentColor" />
             </svg></span></a>
           <?php if ($link_purchase = get_field('link_purchase')) : ?>
