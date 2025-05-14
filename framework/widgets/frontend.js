@@ -359,7 +359,7 @@
 				page: idpage,
 				json_data: jsonData
 			};
-			console.log(idpage);
+			// console.log(idpage);
 			$.ajax({
 				type: 'POST',
 				dataType: 'json',

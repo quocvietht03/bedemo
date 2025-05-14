@@ -171,6 +171,7 @@
 			this.innerHTML = this.innerHTML.replace(searchTerm, replaceWith);
 		});
 	}
+
 	// hover button 
 	function BeDemoButtonHover() {
 		// Cache selectors
@@ -195,6 +196,7 @@
 			});
 		});
 	}
+
 	function BeDemoSearchCheck() {
 		if ($('.search').length > 0) {
 			// Get search term from URL
@@ -210,6 +212,20 @@
 			}
 		}
 	}
+
+	function BeDemoEstimateProject() {
+		if ($('.bt-estimate-project-form').length > 0) {
+			var btSF = $('.bt-estimate-project-form .bt-service-field select');
+			var btnEP = $('a[href="#bt-estimate-project"]');
+			
+			btnEP.on('click', function () {
+				var service = $(this).data('service');
+				btSF.val(service).trigger('change');
+			});
+		}
+	}
+
+
 	jQuery(document).ready(function ($) {
 		BeDemoSubmenuAuto();
 		BeDemoToggleMenuMobile();
@@ -225,6 +241,7 @@
 		BeDemoCopyrightCurrentYear();
 		BeDemoButtonHover();
 		BeDemoSearchCheck();
+		BeDemoEstimateProject();
 	});
 
 	jQuery(window).on('resize', function () {
