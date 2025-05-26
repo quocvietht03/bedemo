@@ -21,34 +21,20 @@ function bedemo_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'bedemo_mime_types');
 
-/* Register Default Fonts */
-if (!function_exists('bedemo_fonts_url')) {
-	function bedemo_fonts_url() {
-		global $bedemo_options;
-		$base_font = 'Muli';
-		$head_font = 'Montserrat';
-
-		$font_url = '';
-		if ( 'off' !== _x( 'on', 'Google font: on or off', 'bedemo' ) ) {
-			$font_url = add_query_arg( 'family', urlencode( $base_font.':400,400i,600,700|'.$head_font.':400,400i,500,600,700' ), "//fonts.googleapis.com/css" );
-		}
-		return $font_url;
-	}
-}
 /* Enqueue Script */
 if (!function_exists('bedemo_enqueue_scripts')) {
 	function bedemo_enqueue_scripts() {
 		global $bedemo_options;
 
 		/* Fonts */
-		wp_enqueue_style('bedemo-fonts', bedemo_fonts_url(), false );
+		wp_enqueue_style( 'bedemo-fonts', get_template_directory_uri().'/assets/css/fonts.css',  array(), false );
 		wp_enqueue_style( 'bedemo-main', get_template_directory_uri().'/assets/css/main.css',  array(), false );
 		wp_enqueue_style( 'bedemo-style', get_template_directory_uri().'/style.css',  array(), false );
 		wp_enqueue_script( 'bedemo-main', get_template_directory_uri().'/assets/js/main.js', array('jquery'), '', true);
 
 		/* Load custom style */
 		$custom_style = '';
-		$custom_style .= '.test{color: red;}';
+		// $custom_style .= '.test{color: red;}';
 
 		if($custom_style){
 			wp_add_inline_style( 'bedemo-style', $custom_style );
@@ -80,6 +66,7 @@ if (!function_exists('bedemo_enqueue_scripts')) {
 /* Add Stylesheet And Script Backend */
 if (!function_exists('bedemo_enqueue_admin_scripts')) {
 	function bedemo_enqueue_admin_scripts(){
+		wp_enqueue_style( 'bedemo-fonts', get_template_directory_uri().'/assets/css/fonts.css',  array(), false );
 		wp_enqueue_script( 'bedemo-admin-main', get_template_directory_uri().'/assets/js/admin-main.js', array('jquery'), '', true);
 		wp_enqueue_style( 'bedemo-admin-main', get_template_directory_uri().'/assets/css/admin-main.css', array(), false );
 	}

@@ -1,0 +1,24 @@
+
+@font-face {
+  font-family: "Figtree";
+  src:
+    local("Figtree-SemiBold"),
+    url("Figtree-SemiBold.ttf") format("truetype"),;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src:
+    local("Figtree-Regular"),
+    url("Figtree-Regular.ttf") format("truetype"),;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Figtree";
+  src:
+    local("Figtree-Italic"),
+    url("Figtree-Italic.ttf") format("truetype"),;
+  font-weight: 400;
+  font-style: italic;
+}
