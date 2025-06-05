@@ -70,7 +70,7 @@ class ElementorWidgets {
 			'image-feature-slider',
 			'theme-feature',
 			'theme-filter',
-			'features-slider-vertical'
+			'features-slider-vertical',
 		);
 
 		return $this->widgets;

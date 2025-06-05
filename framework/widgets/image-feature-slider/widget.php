@@ -57,6 +57,7 @@ class Widget_ImageFeatureSlider extends Widget_Base
                 'options' => [
                     'cleanira' => __('Cleanira', 'bedemo'),
                     'awakenur' => __('Awakenur', 'bedemo'),
+                    'utenzo' => __('Utenzo', 'bedemo'),
                 ],
             ]
         );

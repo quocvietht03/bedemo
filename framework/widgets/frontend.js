@@ -283,8 +283,11 @@
 					clickable: true,
 				} : false,
 				breakpoints: {
-					1024: {
+					1200: {
 						slidesPerView: $item,
+					},
+					1024: {
+						slidesPerView: Math.max(1, $item - 1),
 					},
 					768: {
 						slidesPerView: $itemTablet,
@@ -298,14 +301,14 @@
 			$JsonFilter = $themeFilter.find('.bt-category-list'),
 			$itemFilter = $themeFilter.find('.bt-category-list li'),
 			$buttonShowMore = $themeFilter.find('.bt-button-all a');
-			
+
 		$itemFilter.on('click', function (e) {
 			e.preventDefault();
 			$itemFilter.removeClass('active');
 			$(this).addClass('active');
 			var cat_id = $(this).data('id');
 			var jsonData = $JsonFilter.data('json');
-			
+
 			var param_ajax = {
 				action: 'bt_filter_themes',
 				cat_id: cat_id,
@@ -314,7 +317,7 @@
 			$.ajax({
 				type: 'POST',
 				dataType: 'json',
-				url: option_ob.ajaxurl, 
+				url: option_ob.ajaxurl,
 				data: param_ajax,
 				context: this,
 				beforeSend: function () {
@@ -330,7 +333,7 @@
 						if (cat_id && cat_id !== 0) {
 							jsonData.category = [cat_id];
 							$JsonFilter.attr("data-json", JSON.stringify(jsonData));
-						}else{
+						} else {
 							jsonData.category = "";
 							$JsonFilter.attr("data-json", JSON.stringify(jsonData));
 						}

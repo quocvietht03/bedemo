@@ -53,6 +53,7 @@ class Widget_ImageFeature extends Widget_Base
 					'cleanira' => esc_html__('Cleanira', 'bedemo'),
 					'awakenur' => esc_html__('Awakenur', 'bedemo'),
 					'autoart' => esc_html__('Autoart', 'bedemo'),
+					'utenzo' => esc_html__('Utenzo', 'bedemo'),
 				],
 			]
 		);
@@ -198,7 +199,6 @@ class Widget_ImageFeature extends Widget_Base
 				'type' => Controls_Manager::HEADING,
 			]
 		);
-
 		$this->add_control(
 			'title_color',
 			[
@@ -206,7 +206,7 @@ class Widget_ImageFeature extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bt-feature--title' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bt-title' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -218,7 +218,7 @@ class Widget_ImageFeature extends Widget_Base
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .bt-feature--title a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .bt-title a:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -228,11 +228,9 @@ class Widget_ImageFeature extends Widget_Base
 			[
 				'name' => 'title_typography',
 				'label' => __('Typography', 'bedemo'),
-				'default' => '',
-				'selector' => '{{WRAPPER}} .bt-feature--title',
+				'selector' => '{{WRAPPER}} .bt-title',
 			]
 		);
-
 		$this->end_controls_section();
 	}
 

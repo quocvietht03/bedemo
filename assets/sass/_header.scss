@@ -440,6 +440,52 @@
       }
     }
   }
+  &.bt-header-utenzo {
+    .elementor-widget-nav-menu {
+      .elementor-nav-menu {
+        .elementor-item {
+          &::after{
+            bottom: 4px;
+          }
+          @media (max-width: 1230px) and (min-width: $break-tl) {
+            --e-nav-menu-horizontal-menu-item-margin: calc(20px / 2);
+            font-size: 16px;
+          }
+          &.elementor-item-active {
+            color: #0c2c48;
+            fill: #0c2c48;
+            &::after {
+              opacity: 0;
+            }
+          }
+        }
+        .bt-buy-theme {
+          .elementor-item {
+            padding: 6px 20px;
+            width: fit-content;
+            font-size: 18px;
+            color: #fff;
+            background-color: #0c2c48;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+    @media (max-width: 1230px) and (min-width: $break-tl) {
+      padding-left: 15px;
+      padding-right: 15px;
+      .elementor-widget-image {
+        img {
+          max-width: 230px;
+        }
+      }
+      .elementor-widget-button {
+        .elementor-button {
+          padding: 12px 25px 12px 25px;
+        }
+      }
+    }
+  }
 }
 
 body.admin-bar .dialog-type-lightbox {
