@@ -477,14 +477,9 @@
     @media (max-width: 1230px) and (min-width: $break-tl) {
       padding-left: 15px;
       padding-right: 15px;
-      .elementor-widget-image {
-        img {
-          max-width: 230px;
-        }
-      }
       .elementor-widget-button {
         .elementor-button {
-          padding: 12px 25px 12px 25px;
+          padding: 11px 25px 11px 25px;
         }
       }
     }

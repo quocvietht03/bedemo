@@ -171,7 +171,24 @@
 			this.innerHTML = this.innerHTML.replace(searchTerm, replaceWith);
 		});
 	}
+	/* Close Popup Mobi on click */
+	function BeDemoClosePopupMobi() {
+		$(document).on('click', '.bt-menu-mobile-popup .elementor-nav-menu .elementor-item', function (e) {
+			var href = $(this).attr('href');
+			
+			// Check if href is an ID scroll link (starts with #)
+			if (href && href.charAt(0) === '#' && href.length > 1) {
+			
+				// Close mobile menu popup
+				$('.bt-menu-mobile-popup').hide();
 
+				// // Smooth scroll to target
+				// $('html, body').animate({
+				//     scrollTop: $(href).offset().top
+				// }, 800);
+			}
+		});
+	}
 	// hover button 
 	function BeDemoButtonHover() {
 		// Cache selectors
@@ -217,7 +234,7 @@
 		if ($('.bt-estimate-project-form').length > 0) {
 			var btSF = $('.bt-estimate-project-form .bt-service-field select');
 			var btnEP = $('a[href="#bt-estimate-project"]');
-			
+
 			btnEP.on('click', function () {
 				var service = $(this).data('service');
 				btSF.val(service).trigger('change');
@@ -242,6 +259,7 @@
 		BeDemoButtonHover();
 		BeDemoSearchCheck();
 		BeDemoEstimateProject();
+		BeDemoClosePopupMobi();
 	});
 
 	jQuery(window).on('resize', function () {
