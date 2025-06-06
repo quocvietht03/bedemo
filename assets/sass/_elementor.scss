@@ -1295,6 +1295,42 @@
             }
           }
         }
+        &.bt-image-position--left{
+          .bt-image-feature-item{
+            .bt-cover-image{
+              img{
+                object-position: top left;
+              }
+            }
+          }
+          &:hover {
+            .bt-image-feature-item {
+              .bt-cover-image {
+                img {
+                  object-position: bottom left;
+                }
+              }
+            }
+          }
+        }
+        &.bt-image-position--right{
+         .bt-image-feature-item{
+           .bt-cover-image{
+              img{
+                object-position: top right;
+              }
+            }
+          }
+          &:hover {
+           .bt-image-feature-item {
+             .bt-cover-image {
+                img {
+                  object-position: bottom right;
+                }
+              }
+            }
+          }
+        }
       }
       .bt-image-feature-item {
         position: relative;
@@ -1403,6 +1439,42 @@
             .bt-cover-image {
               img {
                 object-position: bottom center;
+              }
+            }
+          }
+        }
+        &.bt-image-position--left{
+          .bt-image-feature-item{
+            .bt-cover-image{
+              img{
+                object-position: top left;
+              }
+            }
+          }
+          &:hover {
+            .bt-image-feature-item {
+              .bt-cover-image {
+                img {
+                  object-position: bottom left;
+                }
+              }
+            }
+          }
+        }
+        &.bt-image-position--right{
+         .bt-image-feature-item{
+           .bt-cover-image{
+              img{
+                object-position: top right;
+              }
+            }
+          }
+          &:hover {
+           .bt-image-feature-item {
+             .bt-cover-image {
+                img {
+                  object-position: bottom right;
+                }
               }
             }
           }
@@ -1583,6 +1655,42 @@
               opacity: 1;
               visibility: visible;
               transform: translateY(0);
+            }
+          }
+        }
+        &.bt-image-position--left{
+          .bt-image-feature-item{
+            .bt-cover-image{
+              img{
+                object-position: top left;
+              }
+            }
+          }
+          &:hover {
+            .bt-image-feature-item {
+              .bt-cover-image {
+                img {
+                  object-position: bottom left;
+                }
+              }
+            }
+          }
+        }
+        &.bt-image-position--right{
+         .bt-image-feature-item{
+           .bt-cover-image{
+              img{
+                object-position: top right;
+              }
+            }
+          }
+          &:hover {
+           .bt-image-feature-item {
+             .bt-cover-image {
+                img {
+                  object-position: bottom right;
+                }
+              }
             }
           }
         }

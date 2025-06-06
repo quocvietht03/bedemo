@@ -271,8 +271,6 @@
 				loop: false,
 				spaceBetween: $spaceBetween,
 				speed: $speed,
-				freeMode: true,
-				allowTouchMove: true,
 				autoplay: $autoplay ? {
 					delay: 300,
 					reverseDirection: $direction == 'rtl',

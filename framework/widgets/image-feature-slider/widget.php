@@ -52,7 +52,7 @@ class Widget_ImageFeatureSlider extends Widget_Base
             'style_theme',
             [
                 'label' => __('Style Theme', 'bedemo'),
-                'type' => Controls_Manager::SELECT, 
+                'type' => Controls_Manager::SELECT,
                 'default' => 'cleanira',
                 'options' => [
                     'cleanira' => __('Cleanira', 'bedemo'),
@@ -78,8 +78,8 @@ class Widget_ImageFeatureSlider extends Widget_Base
             [
                 'label' => esc_html__('Title', 'bedemo'),
                 'type' => Controls_Manager::TEXT,
-				'label_block' => true,
-				'default' => __( 'This is heading', 'bedemo' ),
+                'label_block' => true,
+                'default' => __('This is heading', 'bedemo'),
             ]
         );
         $repeater->add_control(
@@ -91,7 +91,19 @@ class Widget_ImageFeatureSlider extends Widget_Base
                 'default' => '',
             ]
         );
-
+        $repeater->add_control(
+            'image_position',
+            [
+                'label' => __('Image Position', 'bedemo'),
+                'type' => Controls_Manager::SELECT,
+                'default' => 'default',
+                'options' => [
+                    'default' => __('Default', 'bedemo'),
+                    'left' => __('Left', 'bedemo'),
+                    'right' => __('Right', 'bedemo'),
+                ],
+            ]
+        );
 
         $this->add_control(
             'list',
@@ -212,61 +224,61 @@ class Widget_ImageFeatureSlider extends Widget_Base
         );
         $this->end_controls_section();
     }
-    protected function register_style_section_controls() {
+    protected function register_style_section_controls()
+    {
 
-		$this->start_controls_section(
-			'section_style_content',
-			[
-				'label' => esc_html__( 'Content', 'bedemo' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
+        $this->start_controls_section(
+            'section_style_content',
+            [
+                'label' => esc_html__('Content', 'bedemo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
 
-		$this->add_control(
-			'title_style',
-			[
-				'label' => __( 'Title', 'bedemo' ),
-				'type' => Controls_Manager::HEADING,
-			]
-		);
+        $this->add_control(
+            'title_style',
+            [
+                'label' => __('Title', 'bedemo'),
+                'type' => Controls_Manager::HEADING,
+            ]
+        );
 
-		$this->add_control(
-			'title_color',
-			[
-				'label' => __( 'Color', 'bedemo' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .bt-image-feature-title' => 'color: {{VALUE}};',
-				],
-			]
-		);
+        $this->add_control(
+            'title_color',
+            [
+                'label' => __('Color', 'bedemo'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .bt-image-feature-title' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
 
-		$this->add_control(
-			'title_color_hover',
-			[
-				'label' => __( 'Color Hover', 'bedemo' ),
-				'type' => Controls_Manager::COLOR,
-				'default' => '',
-				'selectors' => [
-					'{{WRAPPER}} .bt-image-feature-title a:hover' => 'color: {{VALUE}};',
-				],
-			]
-		);
+        $this->add_control(
+            'title_color_hover',
+            [
+                'label' => __('Color Hover', 'bedemo'),
+                'type' => Controls_Manager::COLOR,
+                'default' => '',
+                'selectors' => [
+                    '{{WRAPPER}} .bt-image-feature-title a:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
 
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' => 'title_typography',
-				'label' => __( 'Typography', 'bedemo' ),
-				'default' => '',
-				'selector' => '{{WRAPPER}} .bt-image-feature-title',
-			]
-		);
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => __('Typography', 'bedemo'),
+                'default' => '',
+                'selector' => '{{WRAPPER}} .bt-image-feature-title',
+            ]
+        );
 
-		$this->end_controls_section();
-
-	}
+        $this->end_controls_section();
+    }
     protected function register_controls()
     {
         $this->register_layout_section_controls();
@@ -312,25 +324,25 @@ class Widget_ImageFeatureSlider extends Widget_Base
                         $image = '<img src="' . esc_url($item['image_item']['url']) . '" alt="">';
                     }
                 ?>
-                    <li class="bt-image--item swiper-slide">
+                    <li class="bt-image--item swiper-slide <?php echo !empty($item['image_position']) && $item['image_position'] !== 'default' ? 'bt-image-position--' . esc_attr($item['image_position']) : ''; ?>">
                         <div class="bt-image-feature-item">
-                            <?php echo '<div class="bt-cover-image">' . $image . '</div>'; 
+                            <?php echo '<div class="bt-cover-image">' . $image . '</div>';
                             if (!empty($item['image_url'])) {
-                                echo '<div class="bt-button-image bt-button-hover-'.$theme_style.'"><a href="' . esc_url($item['image_url']) . '" class="bt-button" target="_blank"><span class="bt-heading">' . esc_html__('View Page', 'bedemo') . '</span></a></div>';
+                                echo '<div class="bt-button-image bt-button-hover-' . $theme_style . '"><a href="' . esc_url($item['image_url']) . '" class="bt-button" target="_blank"><span class="bt-heading">' . esc_html__('View Page', 'bedemo') . '</span></a></div>';
                             }
                             ?>
                         </div>
-                        <?php 
-						if(!empty($item['title'])) {
-							if(!empty($item['image_url'])) {
-								echo '<h3 class="bt-image-feature-title">
+                        <?php
+                        if (!empty($item['title'])) {
+                            if (!empty($item['image_url'])) {
+                                echo '<h3 class="bt-image-feature-title">
 										<a href="' . esc_url($item['image_url']) . '" target="_blank">' . $item['title'] . '</a>
 									</h3>';
-							} else {
-								echo '<h3 class="bt-image-feature-title">' . $item['title'] . '</h3>';
-							}
-						}
-					?>
+                            } else {
+                                echo '<h3 class="bt-image-feature-title">' . $item['title'] . '</h3>';
+                            }
+                        }
+                        ?>
                     </li>
                 <?php } ?>
             </ul>
