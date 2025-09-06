@@ -214,14 +214,8 @@ class Widget_ImageSliderVertical extends Widget_Base
         <div class="bt-elwg-image-slider-vertical--default swiper" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-image-slider swiper-wrapper">
                 <?php foreach ($settings['list'] as $index => $item) {
-                    $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);
-                    if (!empty($attachment)) {
-                        $image = '<img src="' . esc_url($attachment[0]) . '" alt="" class="swiper-lazy skip-lazy">';
-                        
-                    } else {
-                        $image = '<img src="' . esc_url($item['image_item']['url']) . '" alt="" class="swiper-lazy skip-lazy">';
-                    }
-                ?>
+                    $image = wp_get_attachment_image($item['image_item']['id'], $settings['thumbnail_size']);
+                    ?>
                     <li class="bt-image--item swiper-slide">
                         <?php if (!empty($item['image_url'])) { ?>
                             <a class="bt-image--link" href="<?php echo esc_url($item['image_url']); ?>" target="_blank">

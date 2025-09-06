@@ -15,7 +15,7 @@ $columns = get_field('columns');
         <?php foreach($gallery as $item) { ?>
           <div class="bt-ins-posts--image">
             <div class="bt-cover-image">
-              <img src="<?php echo esc_url($item['url']); ?>" alt="<?php echo esc_attr($item['title']); ?>" />
+              <?php echo wp_get_attachment_image($item['id'], 'thumbnail'); ?>
             </div>
           </div>
         <?php } ?>

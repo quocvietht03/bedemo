@@ -316,17 +316,10 @@ class Widget_ImageFeatureSlider extends Widget_Base
 ?>
         <div class="bt-feature-slider-js bt-elwg-image-feature-slider--<?php echo esc_attr($theme_style); ?> swiper" data-dots="<?php echo esc_attr($slider_dots) ?>" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-image-feature-slider swiper-wrapper">
-                <?php foreach ($settings['list'] as $index => $item) {
-                    $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);
-                    if (!empty($attachment)) {
-                        $image = '<img src="' . esc_url($attachment[0]) . '" alt="">';
-                    } else {
-                        $image = '<img src="' . esc_url($item['image_item']['url']) . '" alt="">';
-                    }
-                ?>
+                <?php foreach ($settings['list'] as $index => $item) { ?>
                     <li class="bt-image--item swiper-slide <?php echo !empty($item['image_position']) && $item['image_position'] !== 'default' ? 'bt-image-position--' . esc_attr($item['image_position']) : ''; ?>">
                         <div class="bt-image-feature-item">
-                            <?php echo '<div class="bt-cover-image">' . $image . '</div>';
+                            <?php echo '<div class="bt-cover-image">' . wp_get_attachment_image($item['image_item']['id'], $settings['thumbnail_size']). '</div>';
                             if (!empty($item['image_url'])) {
                                 echo '<div class="bt-button-image bt-button-hover-' . $theme_style . '"><a href="' . esc_url($item['image_url']) . '" class="bt-button" target="_blank"><span class="bt-heading">' . esc_html__('View Page', 'bedemo') . '</span></a></div>';
                             }

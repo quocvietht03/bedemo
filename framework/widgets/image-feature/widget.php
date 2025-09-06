@@ -243,18 +243,12 @@ class Widget_ImageFeature extends Widget_Base
 	protected function render()
 	{
 		$settings = $this->get_settings_for_display();
-
-		$attachment = wp_get_attachment_image_src($settings['image']['id'], $settings['thumbnail_size']);
-		if (!empty($attachment)) {
-			$image = '<img src="' . esc_url($attachment[0]) . '" alt="">';
-		} else {
-			$image = '<img src="' . esc_url($settings['image']['url']) . '" alt="">';
-		}
+		
 		$theme_class = $settings['select_theme'] ?? 'cleanira';
 ?>
 		<div class="bt-elwg-image-feature--<?php echo esc_attr($theme_class) ?>">
 			<div class="bt-image-feature-item">
-				<?php echo '<div class="bt-cover-image">' . $image . '</div>'; ?>
+				<?php echo '<div class="bt-cover-image">' . wp_get_attachment_image($settings['image']['id'], $settings['thumbnail_size']) . '</div>'; ?>
 				<?php
 				if (!empty($settings['link'])) {
 					echo '<div class="bt-button-image bt-button-hover-'.$theme_class.'"><a href="' . esc_url($settings['link']) . '" class="bt-button" target="_blank"><span class="bt-heading">' . esc_html__('View Page', 'bedemo') . '</span></a></div>';

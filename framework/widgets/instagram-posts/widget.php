@@ -190,9 +190,9 @@ class Widget_InstagramPosts extends Widget_Base {
 					<div class="bt-ins-posts--gallery <?php echo 'bt-cols--' . esc_attr($settings['columns']); ?>">
 						<?php foreach ($settings['gallery'] as $item) { ?>
 			        <div class="bt-ins-posts--image">
-			          <div class="bt-cover-image">
-									<?php echo '<img src="' . esc_url($item['url']) . '" alt="' . get_the_title($item['id']) . '">'; ?>
-			          </div>
+						<div class="bt-cover-image">
+							<?php echo wp_get_attachment_image($item['id'], 'thumbnail'); ?>
+						</div>
 			        </div>
 						<?php } ?>
 					</div>

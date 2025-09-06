@@ -233,12 +233,7 @@ class Widget_ImageSlider extends Widget_Base
                     } else {
                         $position_class = 'image-center';
                     }
-                    $attachment = wp_get_attachment_image_src($item['image_item']['id'], $settings['thumbnail_size']);
-                    if (!empty($attachment)) {
-                        $image = '<img src="' . esc_url($attachment[0]) . '" alt="">';
-                    } else {
-                        $image = '<img src="' . esc_url($item['image_item']['url']) . '" alt="">';
-                    }
+                    $image = wp_get_attachment_image($item['image_item']['id'], $settings['thumbnail_size']);
                 ?>
                     <li class="bt-image--item swiper-slide">
                         <?php if (!empty($item['image_url'])) { ?>
