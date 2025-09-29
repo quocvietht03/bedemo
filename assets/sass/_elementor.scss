@@ -2196,3 +2196,61 @@
     }
   }
 }
+
+.bt-demo-view {
+  &--mobile-wrap {
+    position: relative;
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  &--video-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 11px 12px 0px;
+  }
+  &--poster {
+    position: relative;
+    width: 100%;
+    min-height: calc(100% - 18px);
+    border-radius: 36px;
+    overflow: hidden;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
+  &--video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 9px 12px;
+    .bt-video-cover {
+      border-radius: 36px;
+      overflow: hidden;
+    }
+  }
+  &--title {
+    color: #0c2c48;
+    font-family: $utenzo-font;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    text-transform: capitalize;
+    padding: 4px 0;
+    text-align: center;
+    margin: 16px 0 0 0;
+  }
+}

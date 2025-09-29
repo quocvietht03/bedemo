@@ -63,6 +63,7 @@ class ElementorWidgets {
 			'review-slider',
 			'text-slider',
 			'demo-item',
+			'mobile-view-item',
 			'feature-item',
 			'image-slider-vertical',
 			'heading-animation',
@@ -180,6 +181,7 @@ class ElementorWidgets {
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ReviewSlider\Widget_ReviewSlider());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\TextSlider\Widget_TextSlider());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\DemoItem\Widget_DemoItem());
+		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\MobileViewItem\Widget_MobileViewItem());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\FeatureItem\Widget_FeatureItem());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\HeadingAnimation\Widget_HeadingAnimation());
 		\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new Widgets\ImageFeature\Widget_ImageFeature());
