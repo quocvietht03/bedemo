@@ -905,7 +905,7 @@ body {
         padding-right: calc((var(--width-body) + 5px - 1680px) / 2);
       }
     }
-    @media (max-width: $break-md) and (max-width: $break-tl) {
+    @media (min-width: $break-md) and (max-width: $break-tl) {
       > .elementor-element {
         &:first-child {
           > .elementor-element {
