@@ -888,4 +888,20 @@ body {
       }
     }
   }
+  &.bt-section-hero-somnia{
+    .e-grid {
+      pointer-events: none;
+    }
+    .e-gallery-image.e-gallery-image-loaded{
+      box-shadow: 0px 10px 25px 0px rgba(54, 95, 104, 0.1);
+    }
+    @media (min-width: 1740px) {
+      .bt-col-container-left {
+        padding-left: calc((var(--width-body) + 5px - 1680px) / 2);
+      }
+      .bt-col-container-right {
+        padding-right: calc((var(--width-body) + 5px - 1680px) / 2);
+      }
+    }
+  }
 }
