@@ -879,6 +879,9 @@
     }
   }
 }
+.bt-image-feature-item {
+  display: block;
+}
 .bt-elwg-image-feature {
   &--bearsthemes {
     .bt-image-feature-item {
@@ -1200,6 +1203,7 @@
       cursor: pointer;
       border-radius: 8px;
       border: 1px solid #f6f6f6;
+      display: block;
       .bt-cover-image {
         img {
           object-position: top center;
