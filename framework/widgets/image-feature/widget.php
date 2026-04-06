@@ -247,7 +247,7 @@ class Widget_ImageFeature extends Widget_Base
 		$theme_class = $settings['select_theme'] ?? 'cleanira';
 ?>
 		<div class="bt-elwg-image-feature--<?php echo esc_attr($theme_class) ?>">
-			<a href="<?php echo !empty($settings['link']) ? esc_url($settings['link']) : '#'; ?>" class="bt-image-feature-item">
+			<a href="<?php echo !empty($settings['link']) ? esc_url($settings['link']) : '#'; ?>" class="bt-image-feature-item" target="_blank" rel="noopener">
 				<?php echo '<div class="bt-cover-image">' . wp_get_attachment_image($settings['image']['id'], $settings['thumbnail_size']) . '</div>'; ?>
 			</a>
 			<?php
