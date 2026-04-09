@@ -302,6 +302,10 @@
 
 		$itemFilter.on('click', function (e) {
 			e.preventDefault();
+			if ($(this).hasClass('active')) {
+				return;
+			}
+			
 			$itemFilter.removeClass('active');
 			$(this).addClass('active');
 			var cat_id = $(this).data('id');

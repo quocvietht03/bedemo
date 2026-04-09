@@ -1722,8 +1722,11 @@
         line-height: 24px; /* 150% */
         text-transform: capitalize;
         border-radius: 48px;
-        cursor: pointer;
-        &.active {
+        transition: all 0.3s ease;
+        &:not(.active) {
+          cursor: pointer;
+        }
+        &.active, &:hover {
           border-color: #ffcf37;
         }
         @media (max-width: $break-xs) {
@@ -1741,7 +1744,15 @@
         border-radius: 8px;
         background: #fff;
         box-shadow: 0px 10px 25px 0px rgba(54, 95, 104, 0.1);
-        padding: 16px;
+        transition: all .3s ease;
+        &:hover {
+          box-shadow: 0px 20px 30px 0px rgba(54, 95, 104, 0.3);
+          transform: translateY(-5px);
+        }
+        &--inner {
+          padding: 16px;
+        }
+        
         &--featured {
           .bt-cover-image {
             border-radius: 6px;
