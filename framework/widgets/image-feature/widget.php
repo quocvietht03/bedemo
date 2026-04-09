@@ -246,9 +246,18 @@ class Widget_ImageFeature extends Widget_Base
 
 		$theme_class = $settings['select_theme'] ?? 'cleanira';
 ?>
-		<div class="bt-elwg-image-feature--<?php echo esc_attr($theme_class) ?>">
+		<div class="bt-elwg-image-feature bt-elwg-image-feature--<?php echo esc_attr($theme_class) ?>">
 			<a href="<?php echo !empty($settings['link']) ? esc_url($settings['link']) : '#'; ?>" class="bt-image-feature-item" target="_blank" rel="noopener">
 				<?php echo '<div class="bt-cover-image">' . wp_get_attachment_image($settings['image']['id'], $settings['thumbnail_size']) . '</div>'; ?>
+				<div class="bt-button-image bt-button-hover-<?php echo esc_attr($theme_class); ?>">
+					<div class="bt-icon">
+						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+						</svg>
+					</div>
+					<span class="bt-heading"><?php echo esc_html__('Preview Demo', 'bedemo'); ?></span>
+				</div>
 			</a>
 			<?php
 			if (!empty($settings['title'])) {
