@@ -314,17 +314,22 @@ class Widget_ImageFeatureSlider extends Widget_Base
         $slider_space_between = $settings['slider_spacebetween'];
         $theme_style = $settings['style_theme'];
 ?>
-        <div class="bt-feature-slider-js bt-elwg-image-feature-slider--<?php echo esc_attr($theme_style); ?> swiper" data-dots="<?php echo esc_attr($slider_dots) ?>" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
+        <div class=" bt-elwg-image-feature-slider bt-feature-slider-js bt-elwg-image-feature-slider--<?php echo esc_attr($theme_style); ?> swiper" data-dots="<?php echo esc_attr($slider_dots) ?>" data-autoplay="<?php echo esc_attr($autoplay) ?>" data-direction="<?php echo esc_attr($slider_direction) ?>" data-item="<?php echo esc_attr($slider_item_desktop) ?>" data-item-tablet="<?php echo !empty($slider_item_tablet) ? $slider_item_tablet : 2; ?>" data-item-mobile="<?php echo !empty($slider_item_mobile) ? $slider_item_mobile : 1; ?>" data-speed="<?php echo esc_attr($slider_speed) ?>" data-spacebetween="<?php echo esc_attr($slider_space_between) ?>">
             <ul class="bt-image-feature-slider swiper-wrapper">
                 <?php foreach ($settings['list'] as $index => $item) { ?>
                     <li class="bt-image--item swiper-slide <?php echo !empty($item['image_position']) && $item['image_position'] !== 'default' ? 'bt-image-position--' . esc_attr($item['image_position']) : ''; ?>">
-                        <div class="bt-image-feature-item">
-                            <?php echo '<div class="bt-cover-image">' . wp_get_attachment_image($item['image_item']['id'], $settings['thumbnail_size']). '</div>';
-                            if (!empty($item['image_url'])) {
-                                echo '<div class="bt-button-image bt-button-hover-' . $theme_style . '"><a href="' . esc_url($item['image_url']) . '" class="bt-button" target="_blank"><span class="bt-heading">' . esc_html__('View Page', 'bedemo') . '</span></a></div>';
-                            }
-                            ?>
-                        </div>
+                        <a href="<?php echo !empty($item['image_url']) ? esc_url($item['image_url']) : '#'; ?>" class="bt-image-feature-item" target="_blank" rel="noopener">
+                            <?php echo '<div class="bt-cover-image">' . wp_get_attachment_image($item['image_item']['id'], $settings['thumbnail_size']) . '</div>'; ?>
+                            <div class="bt-button-image bt-button-hover-<?php echo esc_attr($theme_style); ?>">
+                                <div class="bt-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </div>
+                                <span class="bt-heading"><?php echo esc_html__('Preview Demo', 'bedemo'); ?></span>
+                            </div>
+                        </a>
                         <?php
                         if (!empty($item['title'])) {
                             if (!empty($item['image_url'])) {
