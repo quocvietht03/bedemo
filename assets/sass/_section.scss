@@ -706,8 +706,10 @@ body {
   }
   .bt-box-icon-deserve {
     .elementor-icon {
+      position: relative;
       border: 8px solid #f1f1f1;
       margin-bottom: -61px;
+      z-index: 9;
     }
     .elementor-icon-box-content {
       border-radius: 35px;
@@ -718,8 +720,10 @@ body {
   }
   .bt-box-icon-awesome {
     .elementor-icon {
+      position: relative;
       border: 8px solid #f1f1f1;
       margin-bottom: -61px;
+      z-index: 9;
     }
     .elementor-icon-box-content {
       border-radius: 35px;
