@@ -154,3 +154,9 @@ function bt_custom_search_filter( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'bt_custom_search_filter' );
+
+
+function bt_current_year_shortcode() {
+    return date('Y');
+}
+add_shortcode('current_year', 'bt_current_year_shortcode');
