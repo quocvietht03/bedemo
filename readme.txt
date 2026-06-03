@@ -1,8 +1,8 @@
 === BeDemo ===
 Theme Name: BeDemo
-Theme URI: http://bedemo.beplusthemes.com/
-Author: bearsthemes
-Author URI: http://bearsthemes.com
+Theme URI: https://beplusthemes.com
+Author: Beplusthemes
+Author URI: https://beplusthemes.com
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, two-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-logo, custom-menu, editor-style, featured-images, flexible-header, full-width-template, style-variations, sticky-post, theme-options, translation-ready
